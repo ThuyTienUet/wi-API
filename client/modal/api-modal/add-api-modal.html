@@ -1,0 +1,77 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">
+                    &times;
+                </button>
+                <h3 class="modal-title">
+                    <span class="user-define-16x16"></span>&nbsp; Add Api</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" ng-model="name">
+                </div>
+                <div class="form-group">
+                    <label>Method</label>
+                    <input class="form-control" list="method" name="method" ng-model="method">
+                    <datalist id="method">
+                        <option value="GET">
+                            <option value="POST">
+                                <option value="PUT">
+                                    <option value="DELETE">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label>Route</label>
+                    <input type="text" class="form-control" ng-model="route">
+                </div>
+                <div>
+                    <label>Payload Params:</label>
+                    <div class="form-group" ng-repeat="x in [].constructor(count_param) track by $index">
+                        <input type="text" ng-model="keys_param[$index]">
+                        <b>:</b>
+                        <input type="text" ng-model="values_param[$index]">
+                    </div>
+                    <a ng-click="addCountParam()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <a ng-click="subCountParam()">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                </div>
+                <div>
+                    <label>Sample Payload:</label>
+                    <div class="form-group" ng-repeat="x in [].constructor(count_sample) track by $index">
+                        <input type="text" ng-model="keys_sample[$index]">
+                        <b>:</b>
+                        <input type="text" ng-model="values_sample[$index]">
+                    </div>
+                    <a ng-click="addCountSample()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <a ng-click="subCountSample()">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                </div>
+                <div class="form-group">
+                    <label>Note</label>
+                    <input type="text" class="form-control" ng-model="note">
+                </div>
+                <div class="form-group">
+                    <label>Response</label>
+                    <input type="text" class="form-control" ng-model="response">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="wiModal.onOkButtonClicked()">
+                    <span class="ok-16x16"></span>&nbsp;OK
+                </button>
+                <button type="button" ng-click="wiModal.onCancelButtonClicked()" class="btn btn-default">
+                    <span class="close-16x16"></span>&nbsp;Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

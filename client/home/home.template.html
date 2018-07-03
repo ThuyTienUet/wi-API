@@ -1,0 +1,75 @@
+<div class="container">
+    <h1>Api Well Insight</h1>
+    <button type="submit" class="btn btn-primary" ng-click="addApi()">Add API</button>
+    <br>
+    <br>
+    <div class="input-group col-xs-3">
+        <input class="form-control" type="text" placeholder="Search API" ng-model="searchText" />
+    </div>
+    <div class="divTable">
+        <div class="divHeading">
+            <div class="Cell col-sm-1">
+                STT
+            </div>
+            <div class="Cell col-sm-4">
+                Name
+            </div>
+            <div class="Cell col-sm-1">
+                Method
+            </div>
+            <div class="Cell col-sm-4">
+                Route
+            </div>
+            <div class="Cell col-sm-2">
+                Action
+            </div>
+        </div>
+        <div class="Row" ng-repeat="x in data | filter: searchText" ng-init="x.show=false">
+            <div class="Cell col-sm-1">
+                {{ $index + 1 }}
+            </div>
+            <div class="Cell col-sm-4">
+                {{ x.name  }}
+            </div>
+            <div class=" Cell col-sm-1">
+                {{ x.method  }}
+            </div>
+            <div class="Cell col-sm-4">
+                {{ x.route  }}
+            </div>
+            <div class=" Cell col-sm-2">
+                <a ng-click="x.show=!x.show">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+                <a ng-click="editApi(x._id)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a ng-click="deleteApi(x._id)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </div>
+            <div ng-show="x.show" style="border: 1px solid #ddd; padding: 0px">
+                <p>
+                    <b>Name : </b> {{ x.name  }}
+                </p>
+                <p>
+                    <b>Method : </b> {{ x.method  }}
+                </p>
+                <p>
+                    <b>Route : </b> {{ x.route  }}
+                </p>
+                <p>
+                    <b>Payload Params : </b> {{ x.payloadParams  }}
+                </p>
+                <p>
+                    <b>Sample Payload : </b> {{ x.samplePayload  }}
+                </p>
+                <p>
+                    <b>Note : </b> {{ x.note  }}
+                </p>
+                <p>
+                    <b>Response : </b> {{ x.response  }}
+                </p>
+            </div>
+        </div>
+    </div>
