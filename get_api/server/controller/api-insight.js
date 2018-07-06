@@ -25,9 +25,7 @@ module.exports.apiReadOne = function (req, res) {
             res.json(api);         
         })
 }
-
 module.exports.addApi = function (req, res) {
-    //console.log(req.body.samplePayload);
     Api.create({
         name: req.body.name,
         method: req.body.method,
@@ -38,14 +36,9 @@ module.exports.addApi = function (req, res) {
         response: JSON.stringify(req.body.response)
     }, function (err, api) {
         if (err) {
-            res.send(err);
-        };
-        Api.find(function (err, apis) {
-            if (err) {
-                res.send(err);
-            };           
-             //res.json(apis);
-        });     
+            res.send({content: err});
+        }
+        else res.send({content: "ok"});
     });
 }
 
@@ -62,7 +55,7 @@ module.exports.editApi = function (req, res) {
             api.payloadParams = JSON.stringify(req.body.payloadParams),
             api.samplePayload = JSON.stringify(req.body.samplePayload),
             api.note = req.body.note;
-            response: JSON.stringify(req.body.response);
+            api.response = JSON.stringify(req.body.response);
             api.save(function (err, api) {
                 if (err) {
                     console.log(err);

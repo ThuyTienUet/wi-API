@@ -1,38 +1,26 @@
-/**
- * Create controller
- * @module myApp
- */
-
 angular
     .module('myApp')
     .controller('homeCtrl', homeCtrl);
 
-/**
- * 
- * @param {*}  
- * @param {*}  
- * @param {*} dialogUtilService 
- */
 function homeCtrl($scope, $http, dialogUtilService) {
     $scope.data = [];
-
+  
     $http.get('/api/apiInsight')
         .then(function successCallback(data) {
             $scope.data = data.data;
-            console.log($scope.data[0].payloadParams);
-            for (let x = 0; x < $scope.data.length; x++) {
+            for (let x = 0; x < $scope.data.length; x++) {               
                 let obj_param = JSON.parse($scope.data[x].payloadParams);
                 let obj_sample = JSON.parse($scope.data[x].samplePayload);
                 let obj_res = JSON.parse($scope.data[x].response);
                 $scope.data[x].payloadParams = angular.toJson(obj_param, 2);
                 $scope.data[x].samplePayload = angular.toJson(obj_sample, 2);
                 $scope.data[x].response = angular.toJson(obj_res, 2);
+                $scope.a = $scope.data[0].payloadParams;
             }
         },
             function errorCallback(e) {
                 console.log(e);
             })
-
     $scope.addApi = function () {
         dialogUtilService.addApi();
     }

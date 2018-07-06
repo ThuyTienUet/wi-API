@@ -50,7 +50,7 @@
             </div>
             <div ng-show="x.show" style="border: 1px solid #ddd; padding: 0px">
                 <p>
-                    <b>Name : </b> {{ x.name  }}
+                    <b>Name : </b> {{ x.name }}
                 </p>
                 <p>
                     <b>Method : </b> {{ x.method  }}
@@ -59,16 +59,19 @@
                     <b>Route : </b> {{ x.route  }}
                 </p>
                 <p>
-                    <b>Payload Params : </b> {{ x.payloadParams  }}
+                    <b>Payload Params : </b> 
+                    <pre>{{x.payloadParams || json}}</pre>
                 </p>
                 <p>
-                    <b>Sample Payload : </b> {{ x.samplePayload  }}
+                    <b>Sample Payload : </b> 
+                    <pre>{{x.samplePayload || json}}</pre>
                 </p>
                 <p>
                     <b>Note : </b> {{ x.note  }}
                 </p>
                 <p>
-                    <b>Response : </b> {{ x.response  }}
+                    <b>Response : </b> 
+                    <pre>{{x.response || json}}</pre>
                 </p>
             </div>
         </div>

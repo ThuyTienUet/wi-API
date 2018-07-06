@@ -31,7 +31,12 @@ function dialogUtils(ModalService, $http) {
 
             this.onOkButtonClicked = function () {
                 let tmp_param = '{'
+                if ($scope.keys_param[0] === undefined && $scope.values_param[0] === undefined) {
+                    $scope.count_param = 0;
+                }
                 for (let i = 0; i < $scope.count_param; i++) {
+                    if ($scope.keys_param[i] === undefined) $scope.keys_param[i] = '';
+                    if ($scope.values_param[i] === undefined) $scope.values_param[i] = '';
                     if (i == 0) {
                         tmp_param = tmp_param + '"' + $scope.keys_param[i] + '":"' + $scope.values_param[i] + '"';
                     } else {
@@ -39,10 +44,15 @@ function dialogUtils(ModalService, $http) {
                     }
                 }
                 tmp_param = tmp_param + '}';
-                tmp_param = JSON.parse(tmp_param);                
-        
+                tmp_param = JSON.parse(tmp_param);
+
                 let tmp_sample = '{'
+                if ($scope.keys_sample[0] === undefined && $scope.values_sample[0] === undefined) {
+                    $scope.count_sample = 0;
+                }
                 for (let i = 0; i < $scope.count_sample; i++) {
+                    if ($scope.keys_sample[i] === undefined) $scope.keys_sample[i] = '';
+                    if ($scope.values_sample[i] === undefined) $scope.values_sample[i] = '';
                     if (i == 0) {
                         tmp_sample = tmp_sample + '"' + $scope.keys_sample[i] + '":"' + $scope.values_sample[i] + '"';
                     } else {
@@ -51,6 +61,7 @@ function dialogUtils(ModalService, $http) {
                 }
                 tmp_sample = tmp_sample + '}';
                 tmp_sample = JSON.parse(tmp_sample);
+                if ($scope.response === undefined) $scope.response = "{}";
                 $scope.api = {
                     name: $scope.name,
                     method: $scope.method,
@@ -60,7 +71,7 @@ function dialogUtils(ModalService, $http) {
                     note: $scope.note,
                     response: JSON.parse($scope.response)
                 }
-                
+
                 $http.post('/api/apiInsight', $scope.api)
                     .then(function successCallback(data) {
                         $scope.api = {};
@@ -124,8 +135,9 @@ function dialogUtils(ModalService, $http) {
                     $scope.route = data.data.route;
                     $scope.note = data.data.note;
                     let param = JSON.parse(data.data.payloadParams);
-                    let sample = JSON.parse(data.data.samplePayload);
-                    $scope.response = JSON.parse(data.data.response);
+                    let sample = JSON.parse(data.data.samplePayload)
+                    if (data.data.response != "{}") $scope.response = JSON.parse(data.data.response);
+                    else $scope.response = data.data.response;
 
                     for (let key in param) {
                         $scope.count_param = $scope.count_param + 1;
@@ -139,14 +151,19 @@ function dialogUtils(ModalService, $http) {
                         $scope.keys_sample.push(`${key}`);
                         $scope.values_sample.push(`${val}`);
                     }
-                    
+
                 },
                     function errorCallback(e) {
                         console.log(e);
                     })
             this.onOkButtonClicked = function () {
                 let tmp_param = '{'
+                if ($scope.keys_param[0] === undefined && $scope.values_param[0] === undefined) {
+                    $scope.count_param = 0;
+                }
                 for (let i = 0; i < $scope.count_param; i++) {
+                    if ($scope.keys_param[i] === undefined) $scope.keys_param[i] = '';
+                    if ($scope.values_param[i] === undefined) $scope.values_param[i] = '';
                     if (i == 0) {
                         tmp_param = tmp_param + '"' + $scope.keys_param[i] + '":"' + $scope.values_param[i] + '"';
                     } else {
@@ -154,10 +171,16 @@ function dialogUtils(ModalService, $http) {
                     }
                 }
                 tmp_param = tmp_param + '}';
-                tmp_param = JSON.parse(tmp_param);  
+                tmp_param = JSON.parse(tmp_param);
 
                 let tmp_sample = '{'
+                if ($scope.keys_sample[0] === undefined && $scope.values_sample[0] === undefined) {
+                    $scope.count_sample = 0;
+                }
                 for (let i = 0; i < $scope.count_sample; i++) {
+                    if ($scope.keys_sample[i] === undefined) $scope.keys_sample[i] = '';
+                    if ($scope.values_sample[i] === undefined) $scope.values_sample[i] = '';
+
                     if (i == 0) {
                         tmp_sample = tmp_sample + '"' + $scope.keys_sample[i] + '":"' + $scope.values_sample[i] + '"';
                     } else {
@@ -166,6 +189,7 @@ function dialogUtils(ModalService, $http) {
                 }
                 tmp_sample = tmp_sample + '}';
                 tmp_sample = JSON.parse(tmp_sample);
+                if ($scope.response === undefined) $scope.response = "{}";
                 $scope.api = {
                     name: $scope.name,
                     method: $scope.method,

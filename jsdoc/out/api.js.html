@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: api.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: api.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * Method: POST__________
+ * Route: /hello
+ * @name Name: Sample
+ */
+
+/**
+ * Method: POST__________
+ * Route: /file
+ * @name Name: Upload file
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/new
+ * @name Name: Tạo Project
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/edit
+ * @name Name: Sửa Project
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/delete
+ * @name Name: Xóa Project
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/list
+ * @name Name: List Project
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/info
+ * @name Name: Info Project
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/fullinfo
+ * @name Name: Full Info Project
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/list
+ * @name Name: List wells of a project with filter
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/new
+ * @name Name: Tạo Well
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/edit
+ * @name Name: Sửa Well
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/delete
+ * @name Name: Xóa Well
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/info
+ * @name Name: Info Well
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/export-to-project
+ * @name Name: Export Well to another project
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/get-well-header
+ * @name Name: Get well headers of well
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/update-well-header
+ * @name Name: update one well header
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/bulk-update-well-header
+ * @name Name: bulk update well header
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/dataset/delete
+ * @name Name: Xóa Dataset
+ */
+
+/**
+ * Method: POST__________
+ * Route: /prooject/well/dataset/new
+ * @name Name: Tạo Dataset
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/edit
+ * @name Name: Sửa Dataset
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/info
+ * @name Name: Info Dataset
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/new
+ * @name Name: Tạo Curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/edit
+ * @name Name: Sửa Curve
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/dataset/curve/delete
+ * @name Name: Xóa Curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/info
+ * @name Name: Info Curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/getData
+ * @name Name: Data Curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/is-existed
+ * @name Name: Check curve if existed
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/get-parents
+ * @name Name: Get parents of curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/new
+ * @name Name: Tạo Plot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/edit
+ * @name Name: Sửa Plot
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/delete
+ * @name Name: Xóa Plot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/info
+ * @name Name: Info Plot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/depth-axis/new
+ * @name Name: Tạo Depth - Axis
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/depth-axis/delete
+ * @name Name: Xóa Depth - Axis
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/depth-axis/info
+ * @name Name: Info Depth - Axis
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/new
+ * @name Name: Tạo Track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/edit
+ * @name Name: Sửa Track
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/track/delete
+ * @name Name: Xóa Track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/info
+ * @name Name: Info Track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/line/new
+ * @name Name: Tạo 1 line
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/track/line/delete
+ * @name Name: Xóa 1 line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/line/edit
+ * @name Name: Sửa 1 line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /file-1
+ * @name Name: Upload file-1 //TODO
+ */
+
+/**
+ * Method: POST__________
+ * Route: /file-2
+ * @name Name: //TODO
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/export
+ * @name Name: Export curve datat to excel
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/shading/new
+ * @name Name: Tao Shading
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/shading/edit
+ * @name Name: Sua shading
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/shading/delete
+ * @name Name: Xóa shading
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/zone-track/new
+ * @name Name: Tạo Zone Track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/zone-track/edit
+ * @name Name: Sửa Zone Track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/zone-track/info
+ * @name Name: Info Zone Track
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/zone-track/delete
+ * @name Name: Xóa Zone Track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/zone-set/new
+ * @name Name: Tạo Zone Set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/zone-set/list
+ * @name Name: List Zone Set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/zone-set/info
+ * @name Name: Info Zone Set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/zone-set/zone/new
+ * @name Name: Tạo Zone
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/zone-set/zone/edit
+ * @name Name: Sửa Zone
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/zone-set/zone/info
+ * @name Name: Info Zone
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/zone-set/zone/delete
+ * @name Name: Xóa Zone
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/new
+ * @name Name: Tạo CrossPlot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/edit
+ * @name Name: Sửa CrossPlot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/info
+ * @name Name: Info CrossPlot
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/cross-plot/delete
+ * @name Name: Xóa CrossPlot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/point-set/new
+ * @name Name: Tạo PointSet
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/point-set/edit
+ * @name Name: Sửa PointSet
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/point-set/info
+ * @name Name: Info PointSet
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/cross-plot/point-set/delete
+ * @name Name: Xóa PointSet
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/polygon/new
+ * @name Name: Tạo Polygon
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/polygon/edit
+ * @name Name: Sửa Polygon
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/polygon/info
+ * @name Name: Info Polygon
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/cross-plot/polygon/delete
+ * @name Name: Xóa Polygon
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/discrim/new
+ * @name Name: Tạo Discrim
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/discrim/edit
+ * @name Name: Sửa Discrim
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/discrim/info
+ * @name Name: Info Discrim
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/discrim/delete
+ * @name Name: Xóa Discrim
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/discrim/list
+ * @name Name: List Discrim By CrossPlot/Histogram
+ */
+
+/**
+ * Method: POST__________
+ * Route: /register
+ * @name Name: Register
+ */
+
+/**
+ * Method: POST__________
+ * Route: /login
+ * @name Name: Login
+ */
+
+/**
+ * Method: none__________
+ * Route: none
+ * @name Name: Authenticate
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/histogram/new
+ * @name Name: Tạo Histogram
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/histogram/info
+ * @name Name: Info Histogram
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/histogram/edit
+ * @name Name: Sửa Histogram
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/histogram/delete
+ * @name Name: Xóa Histogram
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/histogram/all
+ * @name Name: Get All Histogram
+ */
+
+/**
+ * Method: POST__________
+ * Route: /pal/all
+ * @name Name: GET PAL INFO
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/marker/new
+ * @name Name: Tạo Marker
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/marker/info
+ * @name Name: Info Marker
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/marker/edit
+ * @name Name: Sửa Marker
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/track/marker/delete
+ * @name Name: Xóa Marker
+ */
+
+/**
+ * Method: POST__________
+ * Route: /custom-fill/all
+ * @name Name: GET CustomFills
+ */
+
+/**
+ * Method: POST__________
+ * Route: /custom-fill/save
+ * @name Name: Save CustomFills
+ */
+
+/**
+ * Method: POST__________
+ * Route: /custom-fill/clear
+ * @name Name: Clear/Init (Advance)
+ */
+
+/**
+ * Method: POST__________
+ * Route: project/well/cross-plot/user-define-line/new
+ * @name Name: Create new user define line
+ */
+
+/**
+ * Method: POST__________
+ * Route: project/well/cross-plot/user-define-line/info
+ * @name Name: Info user define line
+ */
+
+/**
+ * Method: POST__________
+ * Route: project/well/cross-plot/user-define-line/edit
+ * @name Name: edit user define line
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: project/well/cross-plot/user-define-line/delete
+ * @name Name: delete userdefine line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /image-upload
+ * @name Name: upload image to get url
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/image/new
+ * @name Name: create image
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/image/edit
+ * @name Name: edit image
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/image/info
+ * @name Name: info image
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/track/image/delete
+ * @name Name: delete image
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/annotation/new
+ * @name Name: Create new annotation
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/annotation/edit
+ * @name Name: Edit an annotation
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/track/annotation/info
+ * @name Name: Get annotation info
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/track/annotation/delete
+ * @name Name: Delete an annotation
+ */
+
+/**
+ * Method: POST__________
+ * Route: /poroject/well/cross-plot/regression-line/new
+ * @name Name: Create new regression line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/regression-line/edit
+ * @name Name: Edit an regression line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/regression-line/info
+ * @name Name: Get an regressionLine
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/regression-line/delete
+ * @name Name: Delete an regressionLine
+ */
+
+/**
+ * Method: GET__________
+ * Route: /family/list
+ * @name Name: Get family list
+ */
+
+/**
+ * Method: POST__________
+ * Route: /family/update-spec
+ * @name Name: Update a family with new spec
+ */
+
+/**
+ * Method: POST__________
+ * Route: /family/new
+ * @name Name: Tạo family mới
+ */
+
+/**
+ * Method: POST__________
+ * Route: /family/edit
+ * @name Name: Sửa family
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /family/delete
+ * @name Name: Xóa family
+ */
+
+/**
+ * Method: POST__________
+ * Route: /family/info
+ * @name Name: Get family info
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/scale
+ * @name Name: Lấy minmaxScale 1 Curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/duplicate
+ * @name Name: Duplicate logplot
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/reference-curve/new
+ * @name Name: create reference curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/reference-curve/info
+ * @name Name: info reference curve
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/reference-curve/delete
+ * @name Name: delete reference curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/reference-curve/edit
+ * @name Name: edit reference curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: nhu tren
+ * @name Name: Create ternary
+ */
+
+/**
+ * Method: POST__________
+ * Route: none
+ * @name Name: List Ternary by crosspot id
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: none
+ * @name Name: delete ternary
+ */
+
+/**
+ * Method: POST__________
+ * Route: none
+ * @name Name: edit ternary
+ */
+
+/**
+ * Method: POST__________
+ * Route: none
+ * @name Name: info
+ */
+
+/**
+ * Method: POST__________
+ * Route: /ternary/save-template
+ * @name Name: save ternary template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /ternary/list-template
+ * @name Name: list ternary template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /ternary/remove-template
+ * @name Name: remove ternay template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/updateData
+ * @name Name: Edit Curve Data
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/dataset/curve/processing
+ * @name Name: Processing curves
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/new/
+ * @name Name: Create image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/info/
+ * @name Name: Info image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/edit/
+ * @name Name: edit image track
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/image-track/delete/
+ * @name Name: delete image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/image/new/
+ * @name Name: Create image of image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/image/info/
+ * @name Name: Info  image of image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/image/edit/
+ * @name Name: Edit  image of image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/image-track/image/list
+ * @name Name: list image of track by image track id
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/image-track/image/delete/
+ * @name Name: Delete  image of image track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/object-track/new/
+ * @name Name: Create object track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/object-track/info/
+ * @name Name: Info object track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/object-track/edit/
+ * @name Name: Edit object track
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/object-track/delete/
+ * @name Name: Delete object track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/object-track/object/new/
+ * @name Name: Create object of object track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/object-track/object/info/
+ * @name Name: Info object of object track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/plot/object-track/object/edit/
+ * @name Name: Edit object of object track
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/plot/object-track/object/delete/
+ * @name Name: Delete object of object track
+ */
+
+/**
+ * Method: POST__________
+ * Route: /image-list
+ * @name Name: Get all images of a user
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/overlay-line/all
+ * @name Name: Get all overlay line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/overlay-line/list
+ * @name Name: Get overlay line by 2 curve
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/overlay-line/info
+ * @name Name: Get info overlay line
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/axis-color/save
+ * @name Name: Add/Update axis colors
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/axis-color/all
+ * @name Name: List axis colors
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/cross-plot/axis-color/clear
+ * @name Name: Clear axis colors
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/group/new
+ * @name Name: create group
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/group/edit
+ * @name Name: edit group
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/group/delete
+ * @name Name: delete group
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/group/info
+ * @name Name: info group
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/selection-tool/new
+ * @name Name: create new selection tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/selection-tool/info
+ * @name Name: info selection tool
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/combined-box/selection-tool/delete
+ * @name Name: delete selection tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/selection-tool/edit
+ * @name Name: edit selection tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/new
+ * @name Name: new combined box
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/info
+ * @name Name: info combined box
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/edit
+ * @name Name: edit combined box
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/combined-box/delete
+ * @name Name: delete combined box
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/tool/new
+ * @name Name: new combined box tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/tool/info
+ * @name Name: info combined box tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/tool/edit
+ * @name Name: edit combined box tool
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/combined-box/tool/delete
+ * @name Name: delete combined box tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/combined-box/tool/list
+ * @name Name: list combined box tool
+ */
+
+/**
+ * Method: POST__________
+ * Route: /dustbin
+ * @name Name: get all from dusbin
+ */
+
+/**
+ * Method: POST__________
+ * Route: /dustbin/delete
+ * @name Name: delete permanently an object
+ */
+
+/**
+ * Method: POST__________
+ * Route: /dustbin/restore
+ * @name Name: restore an object
+ */
+
+/**
+ * Method: POST__________
+ * Route: /inventory/import/curve
+ * @name Name: import form inventory
+ */
+
+/**
+ * Method: POSt__________
+ * Route: /inventory/import/dataset
+ * @name Name: import form inventory
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow/new
+ * @name Name: create new workflow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow/list
+ * @name Name: list workflow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow/info
+ * @name Name: info workflow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow/edit
+ * @name Name: edit workflow
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /workflow/delete
+ * @name Name: delete workflow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow-spec/new
+ * @name Name: create new workflow spec
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow-spec/list
+ * @name Name: list workflow spec
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow-spec/info
+ * @name Name: info workflow spec
+ */
+
+/**
+ * Method: POST__________
+ * Route: /workflow-spec/edit
+ * @name Name: edit workflow spec
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /workflow-spec/delete
+ * @name Name: delete workflow spec
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/new
+ * @name Name: Create new zone
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/list
+ * @name Name: list all zone template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/all
+ * @name Name: list zone by zone template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/import
+ * @name Name: import zone template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/export
+ * @name Name: export zone template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/delete
+ * @name Name: delete zone teamplate
+ */
+
+/**
+ * Method: POST__________
+ * Route: /zone-template/edit
+ * @name Name: edit a zone template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /pattern/list
+ * @name Name: pattern list
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/new
+ * @name Name: create new flow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/info
+ * @name Name: info flow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/edit
+ * @name Name: edit flow
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/flow/delete
+ * @name Name: delete flow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/list
+ * @name Name: list flow
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/task/new
+ * @name Name: create task
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/task/info
+ * @name Name: info task
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/task/edit
+ * @name Name: edit task
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/flow/task/delete
+ * @name Name: delete task
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/flow/task/list
+ * @name Name: list task
+ */
+
+/**
+ * Method: POST__________
+ * Route: /marker-template/new
+ * @name Name: create new marker template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /marker-template/list
+ * @name Name: list all marker template
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /marker-template/delete
+ * @name Name: delete marker template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /marker-template/edit
+ * @name Name: edit a marker template
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/new
+ * @name Name: create new marker set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/info
+ * @name Name: info marker set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/list
+ * @name Name: list marker set
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/marker-set/delete
+ * @name Name: delete marker set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/edit
+ * @name Name: edit marker set
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/marker/new
+ * @name Name: create new marker
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/marker/info
+ * @name Name: info marker
+ */
+
+/**
+ * Method: DELETE__________
+ * Route: /project/well/marker-set/marker/delete
+ * @name Name: delete marker
+ */
+
+/**
+ * Method: POST__________
+ * Route: /project/well/marker-set/marker/edit
+ * @name Name: edit marker
+ */
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Name://TODO">Name: //TODO</a></li><li><a href="global.html#Name:Add/Updateaxiscolors">Name: Add/Update axis colors</a></li><li><a href="global.html#Name:Authenticate">Name: Authenticate</a></li><li><a href="global.html#Name:bulkupdatewellheader">Name: bulk update well header</a></li><li><a href="global.html#Name:Checkcurveifexisted">Name: Check curve if existed</a></li><li><a href="global.html#Name:Clearaxiscolors">Name: Clear axis colors</a></li><li><a href="global.html#Name:Clear/InitAdvance">Name: Clear/Init </a></li><li><a href="global.html#Name:creategroup">Name: create group</a></li><li><a href="global.html#Name:createimage">Name: create image</a></li><li><a href="global.html#Name:Createimageofimagetrack">Name: Create image of image track</a></li><li><a href="global.html#Name:Createimagetrack">Name: Create image track</a></li><li><a href="global.html#Name:Createnewannotation">Name: Create new annotation</a></li><li><a href="global.html#Name:createnewflow">Name: create new flow</a></li><li><a href="global.html#Name:createnewmarker">Name: create new marker</a></li><li><a href="global.html#Name:createnewmarkerset">Name: create new marker set</a></li><li><a href="global.html#Name:createnewmarkertemplate">Name: create new marker template</a></li><li><a href="global.html#Name:Createnewregressionline">Name: Create new regression line</a></li><li><a href="global.html#Name:createnewselectiontool">Name: create new selection tool</a></li><li><a href="global.html#Name:Createnewuserdefineline">Name: Create new user define line</a></li><li><a href="global.html#Name:createnewworkflow">Name: create new workflow</a></li><li><a href="global.html#Name:createnewworkflowspec">Name: create new workflow spec</a></li><li><a href="global.html#Name:Createnewzone">Name: Create new zone</a></li><li><a href="global.html#Name:Createobjectofobjecttrack">Name: Create object of object track</a></li><li><a href="global.html#Name:Createobjecttrack">Name: Create object track</a></li><li><a href="global.html#Name:createreferencecurve">Name: create reference curve</a></li><li><a href="global.html#Name:createtask">Name: create task</a></li><li><a href="global.html#Name:Createternary">Name: Create ternary</a></li><li><a href="global.html#Name:DataCurve">Name: Data Curve</a></li><li><a href="global.html#Name:Deleteimageofimagetrack">Name: Delete  image of image track</a></li><li><a href="global.html#Name:Deleteanannotation">Name: Delete an annotation</a></li><li><a href="global.html#Name:DeleteanregressionLine">Name: Delete an regressionLine</a></li><li><a href="global.html#Name:deletecombinedbox">Name: delete combined box</a></li><li><a href="global.html#Name:deletecombinedboxtool">Name: delete combined box tool</a></li><li><a href="global.html#Name:deleteflow">Name: delete flow</a></li><li><a href="global.html#Name:deletegroup">Name: delete group</a></li><li><a href="global.html#Name:deleteimage">Name: delete image</a></li><li><a href="global.html#Name:deleteimagetrack">Name: delete image track</a></li><li><a href="global.html#Name:deletemarker">Name: delete marker</a></li><li><a href="global.html#Name:deletemarkerset">Name: delete marker set</a></li><li><a href="global.html#Name:deletemarkertemplate">Name: delete marker template</a></li><li><a href="global.html#Name:Deleteobjectofobjecttrack">Name: Delete object of object track</a></li><li><a href="global.html#Name:Deleteobjecttrack">Name: Delete object track</a></li><li><a href="global.html#Name:deletepermanentlyanobject">Name: delete permanently an object</a></li><li><a href="global.html#Name:deletereferencecurve">Name: delete reference curve</a></li><li><a href="global.html#Name:deleteselectiontool">Name: delete selection tool</a></li><li><a href="global.html#Name:deletetask">Name: delete task</a></li><li><a href="global.html#Name:deleteternary">Name: delete ternary</a></li><li><a href="global.html#Name:deleteuserdefineline">Name: delete userdefine line</a></li><li><a href="global.html#Name:deleteworkflow">Name: delete workflow</a></li><li><a href="global.html#Name:deleteworkflowspec">Name: delete workflow spec</a></li><li><a href="global.html#Name:deletezoneteamplate">Name: delete zone teamplate</a></li><li><a href="global.html#Name:Duplicatelogplot">Name: Duplicate logplot</a></li><li><a href="global.html#Name:Editimageofimagetrack">Name: Edit  image of image track</a></li><li><a href="global.html#Name:editamarkertemplate">Name: edit a marker template</a></li><li><a href="global.html#Name:editazonetemplate">Name: edit a zone template</a></li><li><a href="global.html#Name:Editanannotation">Name: Edit an annotation</a></li><li><a href="global.html#Name:Editanregressionline">Name: Edit an regression line</a></li><li><a href="global.html#Name:editcombinedbox">Name: edit combined box</a></li><li><a href="global.html#Name:editcombinedboxtool">Name: edit combined box tool</a></li><li><a href="global.html#Name:EditCurveData">Name: Edit Curve Data</a></li><li><a href="global.html#Name:editflow">Name: edit flow</a></li><li><a href="global.html#Name:editgroup">Name: edit group</a></li><li><a href="global.html#Name:editimage">Name: edit image</a></li><li><a href="global.html#Name:editimagetrack">Name: edit image track</a></li><li><a href="global.html#Name:editmarker">Name: edit marker</a></li><li><a href="global.html#Name:editmarkerset">Name: edit marker set</a></li><li><a href="global.html#Name:Editobjectofobjecttrack">Name: Edit object of object track</a></li><li><a href="global.html#Name:Editobjecttrack">Name: Edit object track</a></li><li><a href="global.html#Name:editreferencecurve">Name: edit reference curve</a></li><li><a href="global.html#Name:editselectiontool">Name: edit selection tool</a></li><li><a href="global.html#Name:edittask">Name: edit task</a></li><li><a href="global.html#Name:editternary">Name: edit ternary</a></li><li><a href="global.html#Name:edituserdefineline">Name: edit user define line</a></li><li><a href="global.html#Name:editworkflow">Name: edit workflow</a></li><li><a href="global.html#Name:editworkflowspec">Name: edit workflow spec</a></li><li><a href="global.html#Name:Exportcurvedatattoexcel">Name: Export curve datat to excel</a></li><li><a href="global.html#Name:ExportWelltoanotherproject">Name: Export Well to another project</a></li><li><a href="global.html#Name:exportzonetemplate">Name: export zone template</a></li><li><a href="global.html#Name:FullInfoProject">Name: Full Info Project</a></li><li><a href="global.html#Name:getallfromdusbin">Name: get all from dusbin</a></li><li><a href="global.html#Name:GetAllHistogram">Name: Get All Histogram</a></li><li><a href="global.html#Name:Getallimagesofauser">Name: Get all images of a user</a></li><li><a href="global.html#Name:Getalloverlayline">Name: Get all overlay line</a></li><li><a href="global.html#Name:GetanregressionLine">Name: Get an regressionLine</a></li><li><a href="global.html#Name:Getannotationinfo">Name: Get annotation info</a></li><li><a href="global.html#Name:GETCustomFills">Name: GET CustomFills</a></li><li><a href="global.html#Name:Getfamilyinfo">Name: Get family info</a></li><li><a href="global.html#Name:Getfamilylist">Name: Get family list</a></li><li><a href="global.html#Name:Getinfooverlayline">Name: Get info overlay line</a></li><li><a href="global.html#Name:Getoverlaylineby2curve">Name: Get overlay line by 2 curve</a></li><li><a href="global.html#Name:GETPALINFO">Name: GET PAL INFO</a></li><li><a href="global.html#Name:Getparentsofcurve">Name: Get parents of curve</a></li><li><a href="global.html#Name:Getwellheadersofwell">Name: Get well headers of well</a></li><li><a href="global.html#Name:importforminventory">Name: import form inventory</a></li><li><a href="global.html#Name:importzonetemplate">Name: import zone template</a></li><li><a href="global.html#Name:info">Name: info</a></li><li><a href="global.html#Name:Infoimageofimagetrack">Name: Info  image of image track</a></li><li><a href="global.html#Name:infocombinedbox">Name: info combined box</a></li><li><a href="global.html#Name:infocombinedboxtool">Name: info combined box tool</a></li><li><a href="global.html#Name:InfoCrossPlot">Name: Info CrossPlot</a></li><li><a href="global.html#Name:InfoCurve">Name: Info Curve</a></li><li><a href="global.html#Name:InfoDataset">Name: Info Dataset</a></li><li><a href="global.html#Name:InfoDepth-Axis">Name: Info Depth - Axis</a></li><li><a href="global.html#Name:InfoDiscrim">Name: Info Discrim</a></li><li><a href="global.html#Name:infoflow">Name: info flow</a></li><li><a href="global.html#Name:infogroup">Name: info group</a></li><li><a href="global.html#Name:InfoHistogram">Name: Info Histogram</a></li><li><a href="global.html#Name:infoimage">Name: info image</a></li><li><a href="global.html#Name:Infoimagetrack">Name: Info image track</a></li><li><a href="global.html#Name:InfoMarker">Name: Info Marker</a></li><li><a href="global.html#Name:infomarker">Name: info marker</a></li><li><a href="global.html#Name:infomarkerset">Name: info marker set</a></li><li><a href="global.html#Name:Infoobjectofobjecttrack">Name: Info object of object track</a></li><li><a href="global.html#Name:Infoobjecttrack">Name: Info object track</a></li><li><a href="global.html#Name:InfoPlot">Name: Info Plot</a></li><li><a href="global.html#Name:InfoPointSet">Name: Info PointSet</a></li><li><a href="global.html#Name:InfoPolygon">Name: Info Polygon</a></li><li><a href="global.html#Name:InfoProject">Name: Info Project</a></li><li><a href="global.html#Name:inforeferencecurve">Name: info reference curve</a></li><li><a href="global.html#Name:infoselectiontool">Name: info selection tool</a></li><li><a href="global.html#Name:infotask">Name: info task</a></li><li><a href="global.html#Name:InfoTrack">Name: Info Track</a></li><li><a href="global.html#Name:Infouserdefineline">Name: Info user define line</a></li><li><a href="global.html#Name:InfoWell">Name: Info Well</a></li><li><a href="global.html#Name:infoworkflow">Name: info workflow</a></li><li><a href="global.html#Name:infoworkflowspec">Name: info workflow spec</a></li><li><a href="global.html#Name:InfoZone">Name: Info Zone</a></li><li><a href="global.html#Name:InfoZoneSet">Name: Info Zone Set</a></li><li><a href="global.html#Name:InfoZoneTrack">Name: Info Zone Track</a></li><li><a href="global.html#Name:listallmarkertemplate">Name: list all marker template</a></li><li><a href="global.html#Name:listallzonetemplate">Name: list all zone template</a></li><li><a href="global.html#Name:Listaxiscolors">Name: List axis colors</a></li><li><a href="global.html#Name:listcombinedboxtool">Name: list combined box tool</a></li><li><a href="global.html#Name:ListDiscrimByCrossPlot/Histogram">Name: List Discrim By CrossPlot/Histogram</a></li><li><a href="global.html#Name:listflow">Name: list flow</a></li><li><a href="global.html#Name:listimageoftrackbyimagetrackid">Name: list image of track by image track id</a></li><li><a href="global.html#Name:listmarkerset">Name: list marker set</a></li><li><a href="global.html#Name:ListProject">Name: List Project</a></li><li><a href="global.html#Name:listtask">Name: list task</a></li><li><a href="global.html#Name:ListTernarybycrosspotid">Name: List Ternary by crosspot id</a></li><li><a href="global.html#Name:listternarytemplate">Name: list ternary template</a></li><li><a href="global.html#Name:Listwellsofaprojectwithfilter">Name: List wells of a project with filter</a></li><li><a href="global.html#Name:listworkflow">Name: list workflow</a></li><li><a href="global.html#Name:listworkflowspec">Name: list workflow spec</a></li><li><a href="global.html#Name:listzonebyzonetemplate">Name: list zone by zone template</a></li><li><a href="global.html#Name:ListZoneSet">Name: List Zone Set</a></li><li><a href="global.html#Name:Login">Name: Login</a></li><li><a href="global.html#Name:L%25E1%25BA%25A5yminmaxScale1Curve">Name: Lấy minmaxScale 1 Curve</a></li><li><a href="global.html#Name:newcombinedbox">Name: new combined box</a></li><li><a href="global.html#Name:newcombinedboxtool">Name: new combined box tool</a></li><li><a href="global.html#Name:patternlist">Name: pattern list</a></li><li><a href="global.html#Name:Processingcurves">Name: Processing curves</a></li><li><a href="global.html#Name:Register">Name: Register</a></li><li><a href="global.html#Name:removeternaytemplate">Name: remove ternay template</a></li><li><a href="global.html#Name:restoreanobject">Name: restore an object</a></li><li><a href="global.html#Name:Sample">Name: Sample</a></li><li><a href="global.html#Name:SaveCustomFills">Name: Save CustomFills</a></li><li><a href="global.html#Name:saveternarytemplate">Name: save ternary template</a></li><li><a href="global.html#Name:Suashading">Name: Sua shading</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADa1line">Name: Sửa 1 line</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaCrossPlot">Name: Sửa CrossPlot</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaCurve">Name: Sửa Curve</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaDataset">Name: Sửa Dataset</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaDiscrim">Name: Sửa Discrim</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADafamily">Name: Sửa family</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaHistogram">Name: Sửa Histogram</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaMarker">Name: Sửa Marker</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaPlot">Name: Sửa Plot</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaPointSet">Name: Sửa PointSet</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaPolygon">Name: Sửa Polygon</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaProject">Name: Sửa Project</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaTrack">Name: Sửa Track</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaWell">Name: Sửa Well</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaZone">Name: Sửa Zone</a></li><li><a href="global.html#Name:S%25E1%25BB%25ADaZoneTrack">Name: Sửa Zone Track</a></li><li><a href="global.html#Name:TaoShading">Name: Tao Shading</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1o1line">Name: Tạo 1 line</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oCrossPlot">Name: Tạo CrossPlot</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oCurve">Name: Tạo Curve</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oDataset">Name: Tạo Dataset</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oDepth-Axis">Name: Tạo Depth - Axis</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oDiscrim">Name: Tạo Discrim</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1ofamilym%25E1%25BB%259Bi">Name: Tạo family mới</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oHistogram">Name: Tạo Histogram</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oMarker">Name: Tạo Marker</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oPlot">Name: Tạo Plot</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oPointSet">Name: Tạo PointSet</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oPolygon">Name: Tạo Polygon</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oProject">Name: Tạo Project</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oTrack">Name: Tạo Track</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oWell">Name: Tạo Well</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oZone">Name: Tạo Zone</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oZoneSet">Name: Tạo Zone Set</a></li><li><a href="global.html#Name:T%25E1%25BA%25A1oZoneTrack">Name: Tạo Zone Track</a></li><li><a href="global.html#Name:Updateafamilywithnewspec">Name: Update a family with new spec</a></li><li><a href="global.html#Name:updateonewellheader">Name: update one well header</a></li><li><a href="global.html#Name:Uploadfile">Name: Upload file</a></li><li><a href="global.html#Name:Uploadfile-1//TODO">Name: Upload file-1 //TODO</a></li><li><a href="global.html#Name:uploadimagetogeturl">Name: upload image to get url</a></li><li><a href="global.html#Name:X%25C3%25B3a1line">Name: Xóa 1 line</a></li><li><a href="global.html#Name:X%25C3%25B3aCrossPlot">Name: Xóa CrossPlot</a></li><li><a href="global.html#Name:X%25C3%25B3aCurve">Name: Xóa Curve</a></li><li><a href="global.html#Name:X%25C3%25B3aDataset">Name: Xóa Dataset</a></li><li><a href="global.html#Name:X%25C3%25B3aDepth-Axis">Name: Xóa Depth - Axis</a></li><li><a href="global.html#Name:X%25C3%25B3aDiscrim">Name: Xóa Discrim</a></li><li><a href="global.html#Name:X%25C3%25B3afamily">Name: Xóa family</a></li><li><a href="global.html#Name:X%25C3%25B3aHistogram">Name: Xóa Histogram</a></li><li><a href="global.html#Name:X%25C3%25B3aMarker">Name: Xóa Marker</a></li><li><a href="global.html#Name:X%25C3%25B3aPlot">Name: Xóa Plot</a></li><li><a href="global.html#Name:X%25C3%25B3aPointSet">Name: Xóa PointSet</a></li><li><a href="global.html#Name:X%25C3%25B3aPolygon">Name: Xóa Polygon</a></li><li><a href="global.html#Name:X%25C3%25B3aProject">Name: Xóa Project</a></li><li><a href="global.html#Name:X%25C3%25B3ashading">Name: Xóa shading</a></li><li><a href="global.html#Name:X%25C3%25B3aTrack">Name: Xóa Track</a></li><li><a href="global.html#Name:X%25C3%25B3aWell">Name: Xóa Well</a></li><li><a href="global.html#Name:X%25C3%25B3aZone">Name: Xóa Zone</a></li><li><a href="global.html#Name:X%25C3%25B3aZoneTrack">Name: Xóa Zone Track</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 09:28:41 GMT+0700 (SE Asia Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
