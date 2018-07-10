@@ -6,7 +6,7 @@
                         &times;
                     </button>
                     <h3 class="modal-title">
-                        <span class="user-define-16x16"></span>&nbsp; Add Api</h3>
+                        <span class="user-define-16x16"></span>&nbsp; Add API</h3>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -28,8 +28,9 @@
                         <input type="text" class="form-control" ng-model="route">
                     </div>
                     <div>
-                        <label>Payload Params:</label>
-                        <div class="form-group" ng-repeat="x in [].constructor(count_param) track by $index">
+                        <label>Payload Params: (type: JSON)</label>
+                        <textarea type="JSON" cols="75" rows="5" ng-model="payloadParams"></textarea>
+                        <!-- <div class="form-group" ng-repeat="x in [].constructor(count_param) track by $index">
                             <input type="text" ng-model="keys_param[$index]">
                             <b>:</b>
                             <input type="text" ng-model="values_param[$index]">
@@ -39,11 +40,12 @@
                         </a>
                         <a ng-click="subCountParam()">
                             <span class="glyphicon glyphicon-minus"></span>
-                        </a>
+                        </a> -->
                     </div>
                     <div>
-                        <label>Sample Payload:</label>
-                        <div class="form-group" ng-repeat="x in [].constructor(count_sample) track by $index">
+                        <label>Sample Payload: (type: JSON)</label>
+                        <textarea type="JSON" cols="75" rows="5" ng-model="samplePayload"></textarea>
+                        <!-- <div class="form-group" ng-repeat="x in [].constructor(count_sample) track by $index">
                             <input type="text" ng-model="keys_sample[$index]">
                             <b>:</b>
                             <input type="text" ng-model="values_sample[$index]">
@@ -53,15 +55,17 @@
                         </a>
                         <a ng-click="subCountSample()">
                             <span class="glyphicon glyphicon-minus"></span>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="form-group">
                         <label>Note</label>
-                        <input type="text" class="form-control" ng-model="note">
+                        <textarea type="JSON" cols="75" rows="5" ng-model="note"></textarea>
+                        <!-- <input type="text" class="form-control" ng-model="note"> -->
                     </div>
                     <div class="form-group">
                         <label>Response</label>
-                        <input type="text" class="form-control" ng-model="response">
+                        <textarea type="JSON" cols="75" rows="5" ng-model="response"></textarea>
+                        <!-- <input type="text" class="form-control" ng-model="response"> -->
                     </div>
                 </div>
                 <div class="modal-footer">

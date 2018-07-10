@@ -4,7 +4,24 @@ angular
 
 function WIPMCtrl($scope, $http, $window, dialogWIPM) {
     $scope.data = [];
-
+    $scope.regression = ['LinearRegression',
+        'Lasso',
+        'RandomForestRegressor',
+        'SupportVectorMachine',
+        'XGBoost',
+        'NeuralNetwork',
+        'DecisionTreeRegressor',
+        'HuberRegressor'];
+    $scope.classi = ['NeuralNetClassifier',
+        'DecisionTreeClassifier',
+        'KNN',
+        'LogisticRegression',
+        'RandomForestClassifier'
+    ];
+    $scope.crp = ['crp'];
+    $scope.showModel = function () {
+        
+    }
     $http.get('/WIPM')
         .then(function successCallback(data) {
             $scope.data = data.data;

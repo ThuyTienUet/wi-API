@@ -32,13 +32,13 @@
                 {{ $index + 1 }}
             </div>
             <div class="Cell col-sm-4">
-                {{ x.name  }}
+                {{ x.name }}
             </div>
             <div class=" Cell col-sm-1">
-                {{ x.method  }}
+                {{ x.method }}
             </div>
             <div class="Cell col-sm-4">
-                {{ x.route  }}
+                {{ x.route }}
             </div>
             <div class=" Cell col-sm-2">
                 <a ng-click="x.show=!x.show">
@@ -56,25 +56,34 @@
                     <b>Name : </b> {{ x.name }}
                 </p>
                 <p>
-                    <b>Method : </b> {{ x.method  }}
+                    <b>Method : </b> {{ x.method }}
                 </p>
                 <p>
-                    <b>Route : </b> {{ x.route  }}
+                    <b>Route : </b> {{ x.route }}
                 </p>
                 <p>
-                    <b>Payload Params : </b> 
+                    <b>Payload Params : </b>
                     <pre>{{x.payloadParams || json}}</pre>
                 </p>
                 <p>
-                    <b>Sample Payload : </b> 
+                    <b>Sample Payload : </b>
                     <pre>{{x.samplePayload || json}}</pre>
                 </p>
                 <p>
-                    <b>Note : </b> {{ x.note  }}
+                    <b>Note : </b>
+                    <pre>{{ x.note  }}</pre>
                 </p>
                 <p>
-                    <b>Response : </b> 
+                    <b>Response : </b>
                     <pre>{{x.response || json}}</pre>
+                </p>
+                <p ng-if="x.name == 'Tạo model hồi quy'">
+                    <b>model_type : </b>
+                    <p  ng-repeat="x in regression">
+                        {{ $index + 1 }}. 
+                        <a ng-click="showModel()"> {{x}}</a>
+                    </p>
+                    
                 </p>
             </div>
         </div>

@@ -13,7 +13,7 @@ function apiAuthCtrl($scope, $http, $window,dialogApiAuth) {
                 let obj_errRes = JSON.parse($scope.data[x].errResponse);
                 let obj_res = JSON.parse($scope.data[x].response);
                 $scope.data[x].payloadParams = angular.toJson(obj_param, 2);
-                $scope.data[x].errRes = angular.toJson(obj_errRes, 2);
+                $scope.data[x].errResponse = angular.toJson(obj_errRes, 2);
                 $scope.data[x].response = angular.toJson(obj_res, 2);
             }
         },
