@@ -1,16 +1,16 @@
 <navigation></navigation>
 <br>
 <br>
-<div class="container">
+<div class="container-fluid">
     <h1>WIPM</h1>
     <button type="submit" class="btn btn-primary" ng-click="addApi()">Add API</button>
     <br>
     <br>
-    <div class="input-group col-xs-3">
+    <div class="col-sm-12 no-padding">
         <input class="form-control" type="text" placeholder="Search API" ng-model="searchText" />
     </div>
     <div class="divTable">
-        <div class="divHeading">
+        <div class="col-sm-12 no-padding divHeading">
             <div class="Cell col-sm-1">
                 STT
             </div>
@@ -27,7 +27,7 @@
                 Action
             </div>
         </div>
-        <div class="Row" ng-repeat="x in data | filter: searchText" ng-init="x.show=false">
+        <div class="col-sm-12 no-padding Row" ng-repeat="x in data | filter: searchText" ng-init="x.show=false">
             <div class="Cell col-sm-1">
                 {{ $index + 1 }}
             </div>
@@ -40,7 +40,7 @@
             <div class="Cell col-sm-4">
                 {{ x.route }}
             </div>
-            <div class=" Cell col-sm-2">
+            <div class="Cell col-sm-2">
                 <a ng-click="x.show=!x.show">
                     <span class="glyphicon glyphicon-eye-open"></span>
                 </a>
@@ -51,7 +51,7 @@
                     <span class="glyphicon glyphicon-remove"></span>
                 </a>
             </div>
-            <div ng-show="x.show" style="border: 1px solid #ddd; padding: 0px">
+            <div class="col-sm-12 no-padding" ng-show="x.show" style="display:table-row;border: 1px solid #ddd; padding: 0px">
                 <p>
                     <b>Name : </b> {{ x.name }}
                 </p>
@@ -71,19 +71,11 @@
                 </p>
                 <p>
                     <b>Note : </b>
-                    <pre>{{ x.note  }}</pre>
+                    <span style="word-wrap: break-word">{{x.note}}</span>
                 </p>
                 <p>
                     <b>Response : </b>
-                    <pre>{{x.response || json}}</pre>
-                </p>
-                <p ng-if="x.name == 'Tạo model hồi quy'">
-                    <b>model_type : </b>
-                    <p  ng-repeat="x in regression">
-                        {{ $index + 1 }}. 
-                        <a ng-click="showModel()"> {{x}}</a>
-                    </p>
-                    
+                    <pre style="width:calc(100vw - 60px);">{{x.response || json}}</pre>
                 </p>
             </div>
         </div>

@@ -24,6 +24,8 @@
 }
 .divTable .Row {
 	display: table-row;
+	background-color: yellow;
+	/* word-wrap: break-word */
 }
 .divTable .Row:nth-of-type(odd) {
     background-color: #f9f9f9;
@@ -39,8 +41,8 @@
 	padding: 8px;
 	text-align: center
 }
-.input-group {
-	width: 100%;
+div.no-padding {
+	padding: 0;
 }
 /* input {
 	countercounter-increment: number;
