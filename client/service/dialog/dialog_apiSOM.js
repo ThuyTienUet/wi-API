@@ -136,9 +136,43 @@ function dialogUtils(ModalService, $http) {
                     $scope.method = data.data.method;
                     $scope.route = data.data.route;
                     $scope.note = data.data.note;
-                    $scope.payloadParams = data.data.payloadParams;
-                    $scope.samplePayload = data.data.samplePayload;
-                    $scope.response = data.data.response;
+                    function objToStr(obj) {
+                        let count = 0;
+                        function toString(obj) {
+                            count++;
+                            let dest = "{\n";
+
+                            for (let key in obj) {
+                                for (let i = 0; i < count; i++) {
+                                    dest += "\t";
+                                }
+                                const val = obj[key];
+                                dest += `"${key}" : `
+                                if (typeof val !== 'object') {
+                                    if (typeof val !== 'number') {
+                                        dest += `"${val}",\n`;
+                                    } else {
+                                        dest += `${val},\n`;
+                                    }
+                                } else {
+                                    dest += `${toString(val)}, \n`;
+                                }
+                            }
+
+                            dest += "}";
+                            return dest;
+                        }
+
+                        function cleaning(str) {
+
+                            return str.replace(/\,(\s)+\}/g, '\n }');
+                        }
+                        return cleaning(toString(obj));
+                    }
+
+                    $scope.payloadParams = objToStr(JSON.parse(data.data.payloadParams));
+                    $scope.samplePayload = objToStr(JSON.parse(data.data.samplePayload));
+                    $scope.response = objToStr(JSON.parse(data.data.response));
                     // if (data.data.payloadParams != "{}") $scope.payloadParams = JSON.parse(data.data.payloadParams);
                     // else $scope.payloadParams = data.data.payloadParams;
                     // if (data.data.samplePayload != "{}") $scope.samplePayload = JSON.parse(data.data.samplePayload);
