@@ -139,11 +139,15 @@ function dialogUtils(ModalService, $http) {
                     $scope.note = data.data.note;
                     function objToStr(obj) {
                         let count = 0;
+                        let c = 0;
                         function toString(obj) {
                             count++;
                             let dest = "{\n";
-
                             for (let key in obj) {
+                                c++;
+                            }
+                            for (let key in obj) {
+                                c--;
                                 for (let i = 0; i < count; i++) {
                                     dest += "\t";
                                 }
@@ -151,26 +155,36 @@ function dialogUtils(ModalService, $http) {
                                 dest += `"${key}" : `
                                 if (typeof val !== 'object') {
                                     if (typeof val !== 'number') {
-                                        dest += `"${val}",\n`;
+                                        dest += `"${val}"`;
                                     } else {
-                                        dest += `${val},\n`;
+                                        dest += `${val}`;
                                     }
                                 } else {
-                                    dest += `${toString(val)}, \n`;
+                                    dest += `${toString(val)}`;
+                                    
+                                }
+                                if (c != 0) {
+                                    dest += ", \n";
+                                } else {
+                                    dest += "\n"
                                 }
                             }
-
-                            dest += "}";
+                            count --;
+                            let tmp = "";
+                            for (let i = 0; i < count; i++) {
+                                tmp+= "\t";
+                            }
+                            dest +=  tmp + "}";
                             return dest;
                         }
-
+            
                         function cleaning(str) {
-
+            
                             return str.replace(/\,(\s)+\}/g, '\n }');
                         }
                         return cleaning(toString(obj));
+                       // return toString(obj);
                     }
-
                     $scope.payloadParams = objToStr(JSON.parse(data.data.payloadParams));
                     $scope.samplePayload = objToStr(JSON.parse(data.data.samplePayload));
                     $scope.response = objToStr(JSON.parse(data.data.response));
