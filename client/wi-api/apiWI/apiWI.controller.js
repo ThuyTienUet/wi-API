@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('apiWICtrl', apiWICtrl);
 
-function apiWICtrl($scope, $http, $window, dialogApiWI) {
+function apiWICtrl($scope, $http, $window, dialogApi) {
     $scope.data = [];
 
     $http.get('/apiInsight')
@@ -22,11 +22,11 @@ function apiWICtrl($scope, $http, $window, dialogApiWI) {
                 console.log(e);
             })
     $scope.addApi = function () {
-        dialogApiWI.addApi();
+        dialogApi.addApi('/apiInsight/');
     }
 
     $scope.editApi = function (api_id) {
-        dialogApiWI.editApi(api_id);
+        dialogApi.editApi('/apiInsight/',api_id);
     }
 
     $scope.deleteApi = function (api_id) {
@@ -41,4 +41,24 @@ function apiWICtrl($scope, $http, $window, dialogApiWI) {
             $window.location.reload();
         }
     };
+
+    $scope.updateJSdoc = function () {
+        let data;
+        $http.get('/apiInsight')
+            .then(function successCallback(data) {
+                data = data.data;
+                console.log(typeof data);
+                $http.post('/fileApiWI', data)
+                    .then(function successCallback(data) {
+                        console.log(data);
+                    },
+                        function errorCallback(e) {
+                            console.log(e);
+                        })
+            },
+                function errorCallback(e) {
+                    console.log(e);
+                })
+
+    }
 }

@@ -2,13 +2,13 @@ angular
     .module('myApp')
     .controller('apiComCtrl', apiComCtrl);
 
-function apiComCtrl($scope, $http, $window,dialogApiCom) {
+function apiComCtrl($scope, $http, $window, dialogApi) {
     $scope.data = [];
-  
+
     $http.get('/apiCom')
         .then(function successCallback(data) {
             $scope.data = data.data;
-            for (let x = 0; x < $scope.data.length; x++) {               
+            for (let x = 0; x < $scope.data.length; x++) {
                 let obj_param = JSON.parse($scope.data[x].payloadParams);
                 let obj_sample = JSON.parse($scope.data[x].samplePayload);
                 let obj_res = JSON.parse($scope.data[x].response);
@@ -22,11 +22,11 @@ function apiComCtrl($scope, $http, $window,dialogApiCom) {
                 console.log(e);
             })
     $scope.addApi = function () {
-        dialogApiCom.addApi();
+        dialogApi.addApi('/apiCom/');
     }
 
     $scope.editApi = function (apiCom_id) {
-        dialogApiCom.editApi(apiCom_id);
+        dialogApi.editApi('/apiCom/', apiCom_id);
     }
 
     $scope.deleteApi = function (apiCom_id) {
@@ -41,4 +41,33 @@ function apiComCtrl($scope, $http, $window,dialogApiCom) {
             $window.location.reload();
         }
     };
+    $scope.updateJSdoc = function () {
+        $http.get('/apiCom')
+            .then(function successCallback(data) {
+                $scope.data = data.data;
+
+            },
+                function errorCallback(e) {
+                    console.log(e);
+                })
+    }
+    $scope.updateJSdoc = function () {
+        let data;
+        $http.get('/apiCom')
+            .then(function successCallback(data) {
+                data = data.data;
+                console.log(typeof data);
+                $http.post('/fileApiCom', data)
+                    .then(function successCallback(data) {
+                        console.log(data);
+                    },
+                        function errorCallback(e) {
+                            console.log(e);
+                        })
+            },
+                function errorCallback(e) {
+                    console.log(e);
+                })
+
+    }
 }

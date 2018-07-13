@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('WIPMCtrl', WIPMCtrl);
 
-function WIPMCtrl($scope, $http, $window, dialogWIPM) {
+function WIPMCtrl($scope, $http, $window, dialogApi) {
     $scope.data = [];
     $scope.regression = ['LinearRegression',
         'Lasso',
@@ -39,11 +39,11 @@ function WIPMCtrl($scope, $http, $window, dialogWIPM) {
                 console.log(e);
             })
     $scope.addApi = function () {
-        dialogWIPM.addApi();
+        dialogApi.addApi('/WIPM/');
     }
 
     $scope.editApi = function (WIPM_id) {
-        dialogWIPM.editApi(WIPM_id);
+        dialogApi.editApi('/WIPM/', WIPM_id);
     }
 
     $scope.deleteApi = function (WIPM_id) {
@@ -58,4 +58,24 @@ function WIPMCtrl($scope, $http, $window, dialogWIPM) {
             $window.location.reload();
         }
     };
+
+    $scope.updateJSdoc = function () {
+        let data;
+        $http.get('/WIPM')
+            .then(function successCallback(data) {
+                data = data.data;
+                console.log(typeof data);
+                $http.post('/fileWIPM', data)
+                    .then(function successCallback(data) {
+                        console.log(data);
+                    },
+                        function errorCallback(e) {
+                            console.log(e);
+                        })
+            },
+                function errorCallback(e) {
+                    console.log(e);
+                })
+
+    }
 }

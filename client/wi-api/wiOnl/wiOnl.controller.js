@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('wiOnlCtrl', wiOnlCtrl);
 
-function wiOnlCtrl($scope, $http, $window, dialogWiOnl) {
+function wiOnlCtrl($scope, $http, $window, dialogApi) {
     $scope.data = [];
 
     $http.get('/wiOnline')
@@ -22,11 +22,11 @@ function wiOnlCtrl($scope, $http, $window, dialogWiOnl) {
                 console.log(e);
             })
     $scope.addApi = function () {
-        dialogWiOnl.addApi();
+        dialogApi.addApi('/wiOnline/');
     }
 
     $scope.editApi = function (wiOnl_id) {
-        dialogWiOnl.editApi(wiOnl_id);
+        dialogApi.editApi('/wiOnline/', wiOnl_id);
     }
 
     $scope.deleteApi = function (wiOnl_id) {
@@ -41,4 +41,24 @@ function wiOnlCtrl($scope, $http, $window, dialogWiOnl) {
             $window.location.reload();
         }
     };
+
+    $scope.updateJSdoc = function () {
+        let data;
+        $http.get('/wiOnline')
+            .then(function successCallback(data) {
+                data = data.data;
+                console.log(typeof data);
+                $http.post('/fileApiOnl', data)
+                    .then(function successCallback(data) {
+                        console.log(data);
+                    },
+                        function errorCallback(e) {
+                            console.log(e);
+                        })
+            },
+                function errorCallback(e) {
+                    console.log(e);
+                })
+
+    }
 }

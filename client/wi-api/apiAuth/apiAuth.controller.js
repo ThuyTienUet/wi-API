@@ -2,13 +2,13 @@ angular
     .module('myApp')
     .controller('apiAuthCtrl', apiAuthCtrl);
 
-function apiAuthCtrl($scope, $http, $window,dialogApiAuth) {
+function apiAuthCtrl($scope, $http, $window, dialogApiAuth) {
     $scope.data = [];
-  
+
     $http.get('/apiAuth')
         .then(function successCallback(data) {
             $scope.data = data.data;
-            for (let x = 0; x < $scope.data.length; x++) {               
+            for (let x = 0; x < $scope.data.length; x++) {
                 let obj_param = JSON.parse($scope.data[x].payloadParams);
                 let obj_errRes = JSON.parse($scope.data[x].errResponse);
                 let obj_res = JSON.parse($scope.data[x].response);
@@ -40,4 +40,21 @@ function apiAuthCtrl($scope, $http, $window,dialogApiAuth) {
             $window.location.reload();
         }
     };
+
+    $scope.updateJSdoc = function () {
+        let data;
+        $http.get('/apiAuth')
+            .then(function successCallback(data) {
+                data = data.data;
+                $http.post('/fileApiAuth', data)
+                    .then(function successCallback(data) {
+                    },
+                        function errorCallback(e) {
+                            console.log(e);
+                        })
+            },
+                function errorCallback(e) {
+                    console.log(e);
+                })
+    }
 }

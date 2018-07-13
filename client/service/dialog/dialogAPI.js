@@ -1,11 +1,11 @@
 angular
     .module('myApp')
-    .service('dialogWiOnl', dialogUtils);
+    .service('dialogApi', dialogUtils);
 
 function dialogUtils(ModalService, $http) {
     let dialogUtils = {};
 
-    dialogUtils.addApi = function (callback) {
+    dialogUtils.addApi = function (route,callback) {
         function addAPiCtrl($scope, $http, $window, close) {
             $scope.api = {};
             $scope.data = [];
@@ -74,7 +74,7 @@ function dialogUtils(ModalService, $http) {
                     response: JSON.parse($scope.response)
                 }
 
-                $http.post('/wiOnline', $scope.api)
+                $http.post(route, $scope.api)
                     .then(function successCallback(data) {
                         $scope.api = {};
                         $scope.data = data.data;
@@ -104,7 +104,7 @@ function dialogUtils(ModalService, $http) {
         });
     }
 
-    dialogUtils.editApi = function (wiOnl_id, callback) {
+    dialogUtils.editApi = function (route,api_id, callback) {
         function editApiCtrl($scope, $http, $window, close) {
             $scope.api = {};
             $scope.data = [];
@@ -130,8 +130,9 @@ function dialogUtils(ModalService, $http) {
             //     $scope.count_sample = $scope.count_sample - 1;
             // }
 
-            $http.get('/wiOnline/' + wiOnl_id)
+            $http.get(route + api_id)
                 .then(function successCallback(data) {
+
                     console.log(data.data);
                     $scope.name = data.data.name;
                     $scope.method = data.data.method;
@@ -185,10 +186,10 @@ function dialogUtils(ModalService, $http) {
                         return cleaning(toString(obj));
                        // return toString(obj);
                     }
+
                     $scope.payloadParams = objToStr(JSON.parse(data.data.payloadParams));
                     $scope.samplePayload = objToStr(JSON.parse(data.data.samplePayload));
                     $scope.response = objToStr(JSON.parse(data.data.response));
-                    
                     // let param = JSON.parse(data.data.payloadParams);
                     // let sample = JSON.parse(data.data.samplePayload)
                     // if (data.data.response != "{}") $scope.response = JSON.parse(data.data.response);
@@ -256,7 +257,7 @@ function dialogUtils(ModalService, $http) {
                     note: $scope.note,
                     response: JSON.parse($scope.response)
                 }
-                $http.put('/wiOnline/' + wiOnl_id, $scope.api)
+                $http.put(route + api_id, $scope.api)
                     .then(function successCallback(data) {
                         $scope.api = {};
                         $scope.data = data.data;

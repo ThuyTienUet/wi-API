@@ -8,6 +8,8 @@ let ctrlApiSOM = require('../controller/api-SOM');
 let ctrlWiOnl = require('../controller/wi-online');
 let ctrlWIPM = require('../controller/WIPM');
 
+let JsdocApi = require('../jsdoc/writeFileApi');
+
 router.get('/apiInsight', ctrlApi.getApi);
 router.get('/apiInsight/:api_id', ctrlApi.apiReadOne);
 router.post('/apiInsight', ctrlApi.addApi);
@@ -55,5 +57,12 @@ router.put('/WIPM/:WIPM_id', ctrlWIPM.editApi);
 router.delete('/WIPM/:WIPM_id', function(req,res) {
     ctrlWIPM.deleteApi(req, res);
 });
+
+router.post('/fileApiWI',JsdocApi.fileApiWI);
+router.post('/fileApiAuth',JsdocApi.fileApiAuth);
+router.post('/fileApiCom',JsdocApi.fileApiCom);
+router.post('/fileApiSOM',JsdocApi.fileApiSOM);
+router.post('/fileApiOnl',JsdocApi.fileApiOnl);
+router.post('/fileWIPM',JsdocApi.fileWIPM);
 
 module.exports = router;
