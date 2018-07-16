@@ -42,22 +42,12 @@ function apiSOMCtrl($scope, $http, $window, dialogApi) {
     };
 
     $scope.updateJSdoc = function () {
-        let data;
-        $http.get('/apiSOM')
+        $http.post('/fileApiSOM', $scope.data)
             .then(function successCallback(data) {
-                data = data.data;
-                console.log(typeof data);
-                $http.post('/fileApiSOM', data)
-                    .then(function successCallback(data) {
-                        console.log(data);
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        })
+                console.log(data);
             },
                 function errorCallback(e) {
                     console.log(e);
                 })
-
     }
 }

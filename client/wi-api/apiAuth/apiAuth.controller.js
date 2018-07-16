@@ -42,19 +42,14 @@ function apiAuthCtrl($scope, $http, $window, dialogApiAuth) {
     };
 
     $scope.updateJSdoc = function () {
-        let data;
-        $http.get('/apiAuth')
+
+        $http.post('/fileApiAuth', $scope.data)
             .then(function successCallback(data) {
-                data = data.data;
-                $http.post('/fileApiAuth', data)
-                    .then(function successCallback(data) {
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        })
+                console.log("ok");
             },
                 function errorCallback(e) {
                     console.log(e);
                 })
+
     }
 }

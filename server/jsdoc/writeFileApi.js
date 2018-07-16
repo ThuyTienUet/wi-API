@@ -8,6 +8,7 @@ module.exports.fileApiAuth = function (req, res) {
 
 module.exports.fileApiCom = function (req, res) {
     let data = req.body;
+    console.log(data);
     writeFile('apiCom', 'API_Communication', data);
 
 }
@@ -37,7 +38,7 @@ module.exports.fileWIPM = function (req, res) {
 }
 
 function writeFile(fileName, moduleName, data) {
-    fs.writeFileSync('../jsdoc-API/demo/src/' + fileName + '.js', '');
+    fs.writeFileSync('./demo/src/' + fileName + '.js', '');
     let str = '/**\n * @fileoverview Module\n */';
     str += '\n/**\n * @module ' + moduleName + '\n */';
     for (let i = 0; i < data.length; i++) {
@@ -75,7 +76,7 @@ function writeFile(fileName, moduleName, data) {
         }
         str += ') {}';
     }
-    fs.writeFileSync('../jsdoc-API/demo/src/' + fileName + '.js', str);
+    fs.writeFileSync('./demo/src/' + fileName + '.js', str);
 }
 
 function objToStr(obj) {

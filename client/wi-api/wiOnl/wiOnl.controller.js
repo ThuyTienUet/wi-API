@@ -43,18 +43,9 @@ function wiOnlCtrl($scope, $http, $window, dialogApi) {
     };
 
     $scope.updateJSdoc = function () {
-        let data;
-        $http.get('/wiOnline')
+        $http.post('/fileApiOnl', $scope.data)
             .then(function successCallback(data) {
-                data = data.data;
-                console.log(typeof data);
-                $http.post('/fileApiOnl', data)
-                    .then(function successCallback(data) {
-                        console.log(data);
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        })
+                console.log(data);
             },
                 function errorCallback(e) {
                     console.log(e);

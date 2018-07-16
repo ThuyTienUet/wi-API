@@ -20,7 +20,7 @@ function WIPMCtrl($scope, $http, $window, dialogApi) {
     ];
     $scope.crp = ['crp'];
     $scope.showModel = function () {
-        
+
     }
     $http.get('/WIPM')
         .then(function successCallback(data) {
@@ -60,22 +60,12 @@ function WIPMCtrl($scope, $http, $window, dialogApi) {
     };
 
     $scope.updateJSdoc = function () {
-        let data;
-        $http.get('/WIPM')
+        $http.post('/fileWIPM', $scope.data)
             .then(function successCallback(data) {
-                data = data.data;
-                console.log(typeof data);
-                $http.post('/fileWIPM', data)
-                    .then(function successCallback(data) {
-                        console.log(data);
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        })
+                console.log(data);
             },
                 function errorCallback(e) {
                     console.log(e);
                 })
-
     }
 }

@@ -5,18 +5,34 @@
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/app.js"
+    "start": "node server/main.js"
   },
   "author": "",
   "license": "ISC",
+  "keywords": [
+    "jsdoc",
+    "jsdoc3",
+    "jsdoc-template",
+    "template",
+    "tui"
+  ],
   "dependencies": {
     "async": "^2.6.1",
     "body-parser": "^1.18.3",
+    "cheerio": "^0.22.0",
+    "del": "^3.0.0",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "jsonformatter": "^0.7.0",
     "mongoose": "^5.1.6",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "tui-jsdoc-template": "^1.2.2",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-jsdoc3": "^1.0.1",
+    "jsdoc": "^3.5.3"
   }
 }

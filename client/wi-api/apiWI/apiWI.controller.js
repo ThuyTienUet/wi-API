@@ -26,7 +26,7 @@ function apiWICtrl($scope, $http, $window, dialogApi) {
     }
 
     $scope.editApi = function (api_id) {
-        dialogApi.editApi('/apiInsight/',api_id);
+        dialogApi.editApi('/apiInsight/', api_id);
     }
 
     $scope.deleteApi = function (api_id) {
@@ -43,18 +43,9 @@ function apiWICtrl($scope, $http, $window, dialogApi) {
     };
 
     $scope.updateJSdoc = function () {
-        let data;
-        $http.get('/apiInsight')
+        $http.post('/fileApiWI', $scope.data)
             .then(function successCallback(data) {
-                data = data.data;
-                console.log(typeof data);
-                $http.post('/fileApiWI', data)
-                    .then(function successCallback(data) {
-                        console.log(data);
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        })
+                console.log(data);
             },
                 function errorCallback(e) {
                     console.log(e);

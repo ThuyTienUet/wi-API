@@ -23,19 +23,11 @@ mongoose.connection.on("error", function (err) {
     return console.log(err);
 });
 
-mongoURI = 'mongodb://localhost:27017/api-well-insight';
+mongoURI = 'mongodb://localhost:27017/wi-API';
 
 mongoose.connect(mongoURI);
-// mongoose.connect(
-    
-//     // 'mongodb://apiWI:a123456@ds215961.mlab.com:15961/api-well-insight'
-// );
 
 app.use(routesApi);
-
-// app.use(function (req, res) {
-//     res.sendfile(path.join(__dirname, '../client', 'index.html'));
-// });
 
 app.listen(3000);
 console.log("app listening on port 3000");
