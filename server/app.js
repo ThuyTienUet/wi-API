@@ -23,7 +23,7 @@ mongoose.connection.on("error", function (err) {
     return console.log(err);
 });
 
-mongoURI = 'mongodb://localhost:27017/wi-API';
+mongoURI = 'mongodb://localhost:27017/apiWI';
 
 mongoose.connect(mongoURI);
 
