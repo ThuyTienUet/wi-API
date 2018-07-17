@@ -42,7 +42,6 @@ function find(spec) {
     return helper.find(data, spec);
 }
 
-
 function getAncestorLinks(doclet) {
     return helper.getAncestorLinks(data, doclet);
 }
