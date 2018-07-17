@@ -23,11 +23,7 @@ mongoose.connection.on("error", function (err) {
     return console.log(err);
 });
 
-<<<<<<< HEAD
-mongoURI = 'mongodb://localhost:27017/api-well-insight';
-=======
 mongoURI = 'mongodb://localhost:27017/apiWI';
->>>>>>> b0115201448a748ec3c752972a21b9fdfe7082e9
 
 mongoose.connect(mongoURI);
 
