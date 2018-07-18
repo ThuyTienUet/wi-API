@@ -10,6 +10,7 @@ var DEMO_PATH = path.join(__dirname, 'demo');
 var DEMO_TEMPLATE_PATH = __dirname;
 var DEMO_DESTINATION_PATH = 'doc';
 
+
 var demoFilePaths = ['src/**.js'].map(function (filePath) {
     return path.join(DEMO_PATH, filePath);
 });

@@ -36,7 +36,7 @@ env.conf.templates.tabNames = _.extend({
 tutorialsName = env.conf.templates.tabNames.tutorials;
 
 // Set default useCollapsibles true
-env.conf.templates.useCollapsibles = env.conf.templates.useCollapsibles !== false;
+// env.conf.templates.useCollapsibles = env.conf.templates.useCollapsibles !== false;
 
 function find(spec) {
     return helper.find(data, spec);
