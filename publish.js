@@ -23,8 +23,9 @@ var data;
 var view;
 var tutorialsName;
 
-var outdir = path.normalize(env.opts.destination);
+//var outdir = path.normalize(env.opts.destination);
 
+var outdir = './doc';
 env.conf.templates = _.extend({
     useCollapsibles: true
 }, env.conf.templates);
@@ -578,7 +579,6 @@ exports.publish = function(taffyData, opts, tutorials) {
             }
         }
     });
-
     fs.mkPath(outdir);
 
     // copy the template's static files to outdir

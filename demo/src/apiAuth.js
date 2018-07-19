@@ -402,3 +402,15 @@ function get_user_permission(username, project_name) {}
 }
  */
 function force_user_logout(idUser) {}
+/**
+ * @implements Method: undefined
+ * @implements Route: undefined
+ * @implements Note: undefined
+ * @example Example Response: 
+{
+}
+ * @example Example Error Response: 
+{
+}
+ */
+function bbbb() {}

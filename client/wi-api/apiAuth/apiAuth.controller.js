@@ -28,12 +28,12 @@ function apiAuthCtrl($scope, $http, $window, dialogApiAuth, authentication) {
         if (authentication.isLoggedIn() == true) {
             dialogApiAuth.editApi(apiAuth_id);
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
-
     }
 
     $scope.deleteApi = function (apiAuth_id) {
+        
         if (authentication.isLoggedIn() == true) {
             if (confirm("You want to remove the API!")) {
                 $http.delete('/apiAuth/' + apiAuth_id)
@@ -46,22 +46,21 @@ function apiAuthCtrl($scope, $http, $window, dialogApiAuth, authentication) {
                 $window.location.reload();
             }
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
-
     };
 
     $scope.updateJSdoc = function () {
         $http.post('/fileApiAuth', $scope.data)
             .then(function successCallback(data) {
-                console.log("ok");
+                
             },
                 function errorCallback(e) {
                     console.log(e);
                 })
-        $window.open('http://localhost:8080/index.html');
-
     }
+
+    
 
     $scope.dowload = false;
     $scope.exportData = function () {

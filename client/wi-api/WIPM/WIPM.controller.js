@@ -46,7 +46,7 @@ function WIPMCtrl($scope, $http, $window, dialogApi, authentication) {
         if (authentication.isLoggedIn() == true) {
             dialogApi.editApi('/WIPM/', WIPM_id);
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
     }
 
@@ -63,7 +63,7 @@ function WIPMCtrl($scope, $http, $window, dialogApi, authentication) {
                 $window.location.reload();
             }
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
 
     };

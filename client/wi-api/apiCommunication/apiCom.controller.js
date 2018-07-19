@@ -29,7 +29,7 @@ function apiComCtrl($scope, $http, $window, dialogApi, authentication) {
         if (authentication.isLoggedIn() == true) {
             dialogApi.editApi('/apiCom/', apiCom_id);
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
 
     }
@@ -48,7 +48,7 @@ function apiComCtrl($scope, $http, $window, dialogApi, authentication) {
                 $window.location.reload();
             }
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
 
     };

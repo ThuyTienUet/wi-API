@@ -33,7 +33,6 @@ module.exports.fileApiOnl = function (req, res) {
 module.exports.fileWIPM = function (req, res) {
     let data = req.body;
     writeFile('WIPM', 'WIPM', data);
-
 }
 
 function writeFile(fileName, moduleName, data) {

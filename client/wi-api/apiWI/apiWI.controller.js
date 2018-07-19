@@ -29,7 +29,7 @@ function apiWICtrl($scope, $http, $window, dialogApi, authentication) {
         if (authentication.isLoggedIn() == true) {
             dialogApi.editApi('/apiInsight/', api_id);
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
     }
 
@@ -46,7 +46,7 @@ function apiWICtrl($scope, $http, $window, dialogApi, authentication) {
                 $window.location.reload();
             }
         } else {
-            alert('login required.')
+            toastr.error('Login required.');
         }
     };
 
