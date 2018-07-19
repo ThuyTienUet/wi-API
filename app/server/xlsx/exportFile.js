@@ -136,7 +136,7 @@ module.exports.WIPM = function (req, res) {
         }
         data.push(ob);
     }
-    exportApi('WIPM', data, function(result){
+    exportApi('WIPM', data, function(result){     
         if (result == 1) {
             res.send('1');
         } else {
