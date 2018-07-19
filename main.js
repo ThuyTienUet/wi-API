@@ -1,4 +1,4 @@
 let gulp = require('./gulpfile');
-let app = require('./app/server/app');
+let app = require('./server/app');
 
 gulp.start('serve');
