@@ -26,7 +26,7 @@ module.exports.fileApiSOM= function (req, res) {
 
 module.exports.fileApiOnl = function (req, res) {
     let data = req.body;
-    writeFile('apiOnl', 'wi-online', data);
+    writeFile('apiOnl', 'wi-online-inventory', data);
 
 }
 

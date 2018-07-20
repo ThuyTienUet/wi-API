@@ -213,7 +213,7 @@ function dialogUtils(ModalService, $http) {
             };
             this.onCancelButtonClicked = function () {               
                 close(null);
-                $window.location.reload();
+                //$window.location.reload();
             };
         }
 

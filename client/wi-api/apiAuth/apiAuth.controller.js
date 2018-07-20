@@ -60,8 +60,6 @@ function apiAuthCtrl($scope, $http, $window, dialogApiAuth, authentication) {
                 })
     }
 
-    
-
     $scope.dowload = false;
     $scope.exportData = function () {
         $http.post('/exportApiAuth', $scope.data)
