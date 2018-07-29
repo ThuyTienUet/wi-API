@@ -117,7 +117,7 @@ function dialogUtils(ModalService, $http) {
                                 console.log(e);
                             });
                     close($scope.data);
-                  //  $window.location.reload();
+                    $window.location.reload();
                 }
             };
             this.onCancelButtonClicked = function () {
