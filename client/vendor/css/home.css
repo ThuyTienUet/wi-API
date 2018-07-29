@@ -24,12 +24,6 @@
 }
 .divTable .Row {
 	display: table-row;
-<<<<<<< HEAD
-	/* background-color: yellow; */
-=======
-/* 	background-color: yellow; */
->>>>>>> 3c3312890147b8ae4217c006f8ca854f1b6384cc
-	/* word-wrap: break-word */
 }
 .divTable .Row:nth-of-type(odd) {
     background-color: #f9f9f9;

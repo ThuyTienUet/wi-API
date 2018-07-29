@@ -2,26 +2,10 @@ angular
     .module('myApp')
     .controller('WIPMCtrl', WIPMCtrl);
 
-function WIPMCtrl($scope, $http, $window, dialogApi, authentication) {
+function WIPMCtrl($scope, $http, $window, dialogApi, dialogModel, authentication) {
     $scope.data = [];
-    $scope.regression = ['LinearRegression',
-        'Lasso',
-        'RandomForestRegressor',
-        'SupportVectorMachine',
-        'XGBoost',
-        'NeuralNetwork',
-        'DecisionTreeRegressor',
-        'HuberRegressor'];
-    $scope.classi = ['NeuralNetClassifier',
-        'DecisionTreeClassifier',
-        'KNN',
-        'LogisticRegression',
-        'RandomForestClassifier'
-    ];
-    $scope.crp = ['crp'];
-    $scope.showModel = function () {
+    $scope.dataRegression = [];
 
-    }
     $http.get('/WIPM')
         .then(function successCallback(data) {
             $scope.data = data.data;
@@ -91,6 +75,90 @@ function WIPMCtrl($scope, $http, $window, dialogApi, authentication) {
                 function errorCallback(e) {
                     console.log(e);
                 })
-        
+
+    };
+
+    $http.get('/regression')
+        .then(function successCallback(data) {
+            $scope.dataRegression = data.data;
+            console.log(data.data);
+            for (let x = 0; x < $scope.dataRegression.length; x++) {
+                let obj_param = JSON.parse($scope.dataRegression[x].parameter);
+                $scope.dataRegression[x].parameter = angular.toJson(obj_param, 2);
+            }
+        },
+            function errorCallback(e) {
+                console.log(e);
+            })
+
+    $http.get('/classi')
+        .then(function successCallback(data) {
+            $scope.dataClassi= data.data;
+            console.log(data.data);
+            for (let x = 0; x < $scope.dataClassi.length; x++) {
+                let obj_param = JSON.parse($scope.dataClassi[x].parameter);
+                $scope.dataClassi[x].parameter = angular.toJson(obj_param, 2);
+            }
+        },
+            function errorCallback(e) {
+                console.log(e);
+            })
+
+    $http.get('/crp')
+        .then(function successCallback(data) {
+            $scope.dataCrp = data.data;
+            console.log(data.data);
+            for (let x = 0; x < $scope.dataCrp.length; x++) {
+                let obj_param = JSON.parse($scope.dataCrp[x].parameter);
+                $scope.dataCrp[x].parameter = angular.toJson(obj_param, 2);
+            }
+        },
+            function errorCallback(e) {
+                console.log(e);
+            })
+
+    $scope.addModel = function (modelName) {
+        let tmp = '/' + modelName + '/';
+        dialogModel.addModel(tmp);
+        // $http.get('/regression')
+        //     .then(function successCallback(data) {
+        //         $scope.dataRegression = data.data;
+        //         console.log(data.data);
+        //         for (let x = 0; x < $scope.dataRegression.length; x++) {
+        //             let obj_param = JSON.parse($scope.dataRegression[x].parameter);
+        //             $scope.dataRegression[x].parameter = angular.toJson(obj_param, 2);
+        //         }
+        //     },
+        //         function errorCallback(e) {
+        //             console.log(e);
+        //         })
+    }
+
+    $scope.editModel = function (modelName, model_id) {
+        let tmp = '/' + modelName + '/';
+        if (authentication.isLoggedIn() == true) {
+            dialogModel.editModel(tmp, model_id);
+        } else {
+            toastr.error('Login required.');
+        }
+    }
+
+    $scope.deleteModel = function (modelName, model_id) {
+        let tmp = '/' + modelName + '/' + model_id;
+        if (authentication.isLoggedIn() == true) {
+            if (confirm("You want to remove the Model!")) {
+                $http.delete(tmp)
+                    .then(function successCallback() {
+                        console.log("Delete success");
+                    },
+                        function errorCallback(e) {
+                            console.log(e);
+                        });
+                $window.location.reload();
+            }
+        } else {
+            toastr.error('Login required.');
+        }
+
     };
 }

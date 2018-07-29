@@ -7,6 +7,9 @@ let ctrlApiCom = require('../controller/api-communication');
 let ctrlApiSOM = require('../controller/api-SOM');
 let ctrlWiOnl = require('../controller/wi-online');
 let ctrlWIPM = require('../controller/WIPM');
+let ctrlReg = require('../controller/regression');
+let ctrlClassi = require('../controller/classi');
+let ctrlCrp = require('../controller/crp');
 
 let JsdocApi = require('../jsdoc/writeFileApi');
 let xlsx = require('../xlsx/exportFile');
@@ -58,6 +61,30 @@ router.post('/WIPM', ctrlWIPM.addApi);
 router.put('/WIPM/:WIPM_id', ctrlWIPM.editApi);
 router.delete('/WIPM/:WIPM_id', function(req,res) {
     ctrlWIPM.deleteApi(req, res);
+});
+
+router.get('/regression', ctrlReg.getModel);
+router.get('/regression/:model_id', ctrlReg.modelReadOne);
+router.post('/regression', ctrlReg.addModel);
+router.put('/regression/:model_id', ctrlReg.editModel);
+router.delete('/regression/:model_id', function(req,res) {
+    ctrlReg.deleteModel(req, res);
+});
+
+router.get('/classi', ctrlClassi.getModel);
+router.get('/classi/:model_id', ctrlClassi.modelReadOne);
+router.post('/classi', ctrlClassi.addModel);
+router.put('/classi/:model_id', ctrlClassi.editModel);
+router.delete('/classi/:model_id', function(req,res) {
+    ctrlClassi.deleteModel(req, res);
+});
+
+router.get('/crp', ctrlCrp.getModel);
+router.get('/crp/:model_id', ctrlCrp.modelReadOne);
+router.post('/crp', ctrlCrp.addModel);
+router.put('/crp/:model_id', ctrlCrp.editModel);
+router.delete('/crp/:model_id', function(req,res) {
+    ctrlCrp.deleteModel(req, res);
 });
 
 router.post('/fileApiWI',JsdocApi.fileApiWI);

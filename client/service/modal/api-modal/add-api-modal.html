@@ -1,5 +1,5 @@
 <div class="modal fade" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 70%">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">
@@ -9,64 +9,51 @@
                     <span class="user-define-16x16"></span>&nbsp; Add API</h3>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label>Name:</label>
-                    <input type="text" class="form-control" ng-model="name">
-                </div>
-                <div class="form-group">
-                    <label>Method</label>
-                    <input class="form-control" list="method" name="method" ng-model="method">
-                    <datalist id="method">
-                        <option value="GET">
-                            <option value="POST">
-                                <option value="PUT">
-                                    <option value="DELETE">
-                    </datalist>
-                </div>
-                <div class="form-group">
-                    <label>Route</label>
-                    <input type="text" class="form-control" ng-model="route">
-                </div>
-                <div>
-                    <label>Payload Params: (type: JSON)</label>
-                    <textarea type="JSON" cols="75" rows="5" ng-model="payloadParams"></textarea>
-                    <!-- <div class="form-group" ng-repeat="x in [].constructor(count_param) track by $index">
-                        <input type="text" cols="40" rows="5" 
-                        style="width:200px; height:50px;" ng-model="keys_param[$index]">
-                        <b>:</b>
-                        <input type="text" ng-model="values_param[$index]">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" class="form-control" ng-model="name">
+                        </div>
                     </div>
-                    <a ng-click="addCountParam()">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <a ng-click="subCountParam()">
-                        <span class="glyphicon glyphicon-minus"></span>
-                    </a> -->
-                </div>
-                <div>
-                    <label>Sample Payload: (type: JSON)</label>
-                    <textarea type="JSON" cols="75" rows="5" ng-model="samplePayload"></textarea>
-                    <!-- <div class="form-group" ng-repeat="x in [].constructor(count_sample) track by $index">
-                        <input type="text" ng-model="keys_sample[$index]">
-                        <b>:</b>
-                        <input type="text" ng-model="values_sample[$index]">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Route</label>
+                            <input type="text" class="form-control" ng-model="route">
+                        </div>
                     </div>
-                    <a ng-click="addCountSample()">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <a ng-click="subCountSample()">
-                        <span class="glyphicon glyphicon-minus"></span>
-                    </a> -->
-                </div>
-                <div class="form-group">
-                    <label>Note</label>
-                    <textarea type="JSON" cols="75" rows="5" ng-model="note"></textarea>
-                    <!-- <input type="text" class="form-control" ng-model="note"> -->
-                </div>
-                <div class="form-group">
-                    <label>Response (type: JSON)</label>
-                    <textarea type="JSON" cols="75" rows="5" ng-model="response"></textarea>
-                    <!-- <input type="text" class="form-control" ng-model="response"> -->
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Method</label>
+                            <input class="form-control" list="method" name="method" ng-model="method">
+                            <datalist id="method">
+                                <option value="GET">
+                                    <option value="POST">
+                                        <option value="PUT">
+                                            <option value="DELETE">
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label>Payload Params: (type: JSON)</label>
+                            <textarea type="JSON" cols="60" rows="8" ng-model="payloadParams"></textarea>
+                        </div>
+                        <div>
+                            <label>Sample Payload: (type: JSON)</label>
+                            <textarea type="JSON" cols="60" rows="8" ng-model="samplePayload"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label>Note</label>
+                            <textarea type="JSON" cols="60" rows="8" ng-model="note"></textarea>
+                        </div>
+                        <div>
+                            <label>Response (type: JSON)</label>
+                            <textarea type="JSON" cols="60" rows="8" ng-model="response"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

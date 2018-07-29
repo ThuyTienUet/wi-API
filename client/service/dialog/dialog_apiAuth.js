@@ -6,59 +6,45 @@ function dialogUtils(ModalService, $http) {
     let dialogUtils = {};
 
     dialogUtils.addApi = function (callback) {
-        function addAPiCtrl($scope, $http, $window,close) {
+        function addAPiCtrl($scope, $http, $window, close) {
             $scope.api = {};
             $scope.data = [];
-            // $scope.count_param = 1;
-            // $scope.keys_param = [];
-            // $scope.values_param = [];
-
-            // $scope.addCountParam = function () {
-            //     $scope.count_param = $scope.count_param + 1;
-            // }
-            // $scope.subCountParam = function () {
-            //     $scope.count_param = $scope.count_param - 1;
-            // }
 
             this.onOkButtonClicked = function () {
-                // let tmp_param = '{'
-                // if ($scope.keys_param[0] === undefined && $scope.values_param[0] === undefined) {
-                //     $scope.count_param = 0;
-                // }
-                // for (let i = 0; i < $scope.count_param; i++) {
-                //     if ($scope.keys_param[i] === undefined) $scope.keys_param[i] = '';
-                //     if ($scope.values_param[i] === undefined) $scope.values_param[i] = '';
-                //     if (i == 0) {
-                //         tmp_param = tmp_param + '"' + $scope.keys_param[i] + '":"' + $scope.values_param[i] + '"';
-                //     } else {
-                //         tmp_param = tmp_param + ', "' + $scope.keys_param[i] + '":"' + $scope.values_param[i] + '"';
-                //     }
-                // }
-                // tmp_param = tmp_param + '}';
-                // tmp_param = JSON.parse(tmp_param);
+
                 if ($scope.payloadParams === undefined) $scope.payloadParams = "{}";
                 if ($scope.response === undefined) $scope.response = "{}";
                 if ($scope.errResponse === undefined) $scope.errResponse = "{}";
-                $scope.api = {
-                    name: $scope.name,
-                    method: $scope.method,
-                    route: $scope.route,
-                    payloadParams: JSON.parse($scope.payloadParams),
-                    errResponse: JSON.parse($scope.errResponse),
-                    note: $scope.note,
-                    response: JSON.parse($scope.response)
-                }
+                let errName = $scope.name.search("-");
+                let errParams = checkParam(JSON.parse($scope.payloadParams), null);
+                if (errName > -1 || errParams > -1) {
+                    if (errName > -1) {
+                        toastr.error('Name is incorrect!');
+                    } else {
+                        toastr.error('Params is incorrect!');
+                    }
+                } else {
+                    $scope.api = {
+                        name: $scope.name,
+                        method: $scope.method,
+                        route: $scope.route,
+                        payloadParams: JSON.parse($scope.payloadParams),
+                        errResponse: JSON.parse($scope.errResponse),
+                        note: $scope.note,
+                        response: JSON.parse($scope.response)
+                    }
 
-                $http.post('/apiAuth', $scope.api)
-                    .then(function successCallback(data) {
-                        $scope.api = {};
-                        $scope.data = data.data;
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        });
-                close($scope.data);
-                 $window.location.reload();
+                    $http.post('/apiAuth', $scope.api)
+                        .then(function successCallback(data) {
+                            $scope.api = {};
+                            $scope.data = data.data;
+                        },
+                            function errorCallback(e) {
+                                console.log(e);
+                            });
+                    close($scope.data);
+                    $window.location.reload();
+                }
             };
             this.onCancelButtonClicked = function () {
                 close(null);
@@ -84,134 +70,57 @@ function dialogUtils(ModalService, $http) {
             $scope.data = [];
             $scope.api = {};
             $scope.data = [];
-            // $scope.count_param = 0;
-            // $scope.keys_param = [];
-            // $scope.values_param = [];
-
-            // $scope.addCountParam = function () {
-            //     $scope.count_param = $scope.count_param + 1;
-            // }
-            // $scope.subCountParam = function () {
-            //     $scope.count_param = $scope.count_param - 1;
-            // }
 
             $http.get('/apiAuth/' + apiAuth_id)
                 .then(function successCallback(data) {
-                     console.log(data.data);
+                    console.log(data.data);
                     $scope.name = data.data.name;
                     $scope.method = data.data.method;
                     $scope.route = data.data.route;
                     $scope.note = data.data.note;
-                    
-                    function objToStr(obj) {
-                        let count = 0;
-                        let c = 0;
-                        function toString(obj) {
-                            count++;
-                            let dest = "{\n";
-                            for (let key in obj) {
-                                c++;
-                            }
-                            for (let key in obj) {
-                                c--;
-                                for (let i = 0; i < count; i++) {
-                                    dest += "\t";
-                                }
-                                const val = obj[key];
-                                dest += `"${key}" : `
-                                if (typeof val !== 'object') {
-                                    if (typeof val !== 'number') {
-                                        dest += `"${val}"`;
-                                    } else {
-                                        dest += `${val}`;
-                                    }
-                                } else {
-                                    dest += `${toString(val)}`;
-                                    
-                                }
-                                if (c != 0) {
-                                    dest += ", \n";
-                                } else {
-                                    dest += "\n"
-                                }
-                            }
-                            count --;
-                            let tmp = "";
-                            for (let i = 0; i < count; i++) {
-                                tmp+= "\t";
-                            }
-                            dest +=  tmp + "}";
-                            return dest;
-                        }
-            
-                        function cleaning(str) {
-            
-                            return str.replace(/\,(\s)+\}/g, '\n }');
-                        }
-                        return cleaning(toString(obj));
-                       // return toString(obj);
-                    }
-
                     $scope.payloadParams = objToStr(JSON.parse(data.data.payloadParams));
                     $scope.errResponse = objToStr(JSON.parse(data.data.errResponse));
                     $scope.response = objToStr(JSON.parse(data.data.response));
-                    
-                    // if (data.data.response != "{}") $scope.response = JSON.parse(data.data.response);
-                    // else $scope.response = data.data.response;
-                    // if (data.data.errResponse != "{}") $scope.errResponse = JSON.parse(data.data.errResponse);
-                    // else $scope.errResponse = data.data.errResponse;
-                    // let param = JSON.parse(data.data.payloadParams);
-                    // for (let key in param) {
-                    //     $scope.count_param = $scope.count_param + 1;
-                    //     const val = param[key];
-                    //     $scope.keys_param.push(`${key}`);
-                    //     $scope.values_param.push(`${val}`);
-                    // }
-
                 },
                     function errorCallback(e) {
                         console.log(e);
                     })
             this.onOkButtonClicked = function () {
-                // let tmp_param = '{'
-                // if ($scope.keys_param[0] === undefined && $scope.values_param[0] === undefined) {
-                //     $scope.count_param = 0;
-                // }
-                // for (let i = 0; i < $scope.count_param; i++) {
-                //     if ($scope.keys_param[i] === undefined) $scope.keys_param[i] = '';
-                //     if ($scope.values_param[i] === undefined) $scope.values_param[i] = '';
-                //     if (i == 0) {
-                //         tmp_param = tmp_param + '"' + $scope.keys_param[i] + '":"' + $scope.values_param[i] + '"';
-                //     } else {
-                //         tmp_param = tmp_param + ', "' + $scope.keys_param[i] + '":"' + $scope.values_param[i] + '"';
-                //     }
-                // }
-                // tmp_param = tmp_param + '}';
-                // tmp_param = JSON.parse(tmp_param);
+
                 if ($scope.payloadParams === undefined) $scope.payloadParams = "{}";
                 if ($scope.response === undefined) $scope.response = "{}";
                 if ($scope.errResponse === undefined) $scope.errResponse = "{}";
-                $scope.api = {
-                    name: $scope.name,
-                    method: $scope.method,
-                    route: $scope.route,
-                    payloadParams: JSON.parse($scope.payloadParams),
-                    note: $scope.note,
-                    response: JSON.parse($scope.response),
-                    errResponse: JSON.parse($scope.errResponse)
+                let errName = $scope.name.search("-");
+                let errParams = checkParam(JSON.parse($scope.payloadParams), null);
+                if (errName > -1 || errParams > -1) {
+                    if (errName > -1) {
+                        toastr.error('Name is incorrect!');
+                    } else {
+                        toastr.error('Params is incorrect!');
+                    }
+                } else {
+                    $scope.api = {
+                        name: $scope.name,
+                        method: $scope.method,
+                        route: $scope.route,
+                        payloadParams: JSON.parse($scope.payloadParams),
+                        note: $scope.note,
+                        response: JSON.parse($scope.response),
+                        errResponse: JSON.parse($scope.errResponse)
+                    }
+                    $http.put('/apiAuth/' + apiAuth_id, $scope.api)
+                        .then(function successCallback(data) {
+                            $scope.api = {};
+                            $scope.data = data.data;
+                        },
+                            function errorCallback(e) {
+                                console.log(e);
+                            });
+                    close($scope.data);
+                  //  $window.location.reload();
                 }
-                $http.put('/apiAuth/' + apiAuth_id, $scope.api)
-                    .then(function successCallback(data) {
-                        $scope.api = {};
-                        $scope.data = data.data;
-                    },
-                        function errorCallback(e) {
-                            console.log(e);
-                        });
-                close($scope.data);
-                $window.location.reload();
             };
-            this.onCancelButtonClicked = function () {               
+            this.onCancelButtonClicked = function () {
                 close(null);
                 //$window.location.reload();
             };
@@ -231,4 +140,77 @@ function dialogUtils(ModalService, $http) {
         });
     }
     return dialogUtils;
+}
+
+function objToStr(obj) {
+    let count = 0;
+    let c = 0;
+    function toString(obj) {
+        count++;
+        let dest = "{\n";
+        for (let key in obj) {
+            c++;
+        }
+        for (let key in obj) {
+            c--;
+            for (let i = 0; i < count; i++) {
+                dest += "\t";
+            }
+            const val = obj[key];
+            dest += `"${key}" : `
+            if (typeof val !== 'object') {
+                if (typeof val !== 'number') {
+                    dest += `"${val}"`;
+                } else {
+                    dest += `${val}`;
+                }
+            } else {
+                dest += `${toString(val)}`;
+
+            }
+            if (c != 0) {
+                dest += ", \n";
+            } else {
+                dest += "\n"
+            }
+        }
+        count--;
+        let tmp = "";
+        for (let i = 0; i < count; i++) {
+            tmp += "\t";
+        }
+        dest += tmp + "}";
+        return dest;
+    }
+
+    function cleaning(str) {
+
+        return str.replace(/\,(\s)+\}/g, '\n }');
+    }
+    return cleaning(toString(obj));
+    // return toString(obj);
+}
+
+function checkParam(obj, parent) {
+    function param(obj, parent) {
+        let dest = -1;
+
+        for (let key in obj) {
+            const val = obj[key];
+           
+            if (typeof val !== 'object') {
+                if (parent != null) {
+                    dest = val.search(' ');
+                    if (dest > -1) return dest;
+                } else
+                    dest = val.search(' ');
+                   if (dest > -1) return dest;
+            } else {
+                dest = param(val, key);
+            }
+        }
+        return dest;
+    }
+
+    return param(obj, parent);
 }

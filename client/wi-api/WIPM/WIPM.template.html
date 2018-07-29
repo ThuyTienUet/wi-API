@@ -6,7 +6,7 @@
     <button type="submit" class="btn btn-primary" ng-click="addApi()">Add API</button>
     <button type="submit" class="btn btn-primary" ng-click="updateJSdoc()">Update JSdoc</button>
     <button type="submit" class="btn btn-primary" ng-click="exportData()"> Export excel </button>
-    <button ng-show="dowload" type="submit" class="btn btn-success" >
+    <button ng-show="dowload" type="submit" class="btn btn-success">
         <a href="http://localhost:3000/dowloadWIPM" style="color: white">Dowload file excel
         </a>
     </button>
@@ -54,8 +54,11 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <a ng-click="deleteApi(x._id)">
-                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
                 </a>
+                <!-- <button type="button" class="btn btn-danger" ng-click="deleteApi(x._id)" >
+                        <span class="glyphicon glyphicon-trash"></span>
+                </button> -->
             </div>
             <div class="col-sm-12 no-padding" ng-show="x.show" style="display:table-row;border: 1px solid #ddd; padding: 0px">
                 <p>
@@ -71,13 +74,106 @@
                     <b>Payload Params : </b>
                     <pre style="width:calc(100vw - 65px);">{{x.payloadParams || json}}</pre>
                 </p>
+                <div ng-if="x.name == 'Tạo model hồi quy'">
+                    <b>Model Type: 
+                        <button type="submit" class="btn btn-primary" ng-click="addModel('regression')">Add Model</button>
+                    </b>
+                    <br>
+                    <div ng-repeat="r in dataRegression" ng-init="r.showModel = false">
+                        {{ $index + 1 }}. {{ r.name }}   
+                        
+                        <a ng-click="r.showModel=!r.showModel">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a ng-click="editModel('regression', r._id)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="deleteModel('regression', r._id)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>                       
+                        <div class="col-sm-12 no-padding" ng-show="r.showModel" style="display:table-row;border: 1px solid #ddd; padding: 0px">
+                            <br>
+                            <p>
+                                <b>Name : </b> {{ r.name }}
+                            </p>
+                            <p>
+                                <b>Parameter : </b>
+                                <pre style="width:calc(100vw - 65px);">{{r.parameter || json}}</pre>
+                            </p>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div ng-if="x.name == 'Tạo model phân loại'">
+                    <b>Model Type: 
+                        <button type="submit" class="btn btn-primary" ng-click="addModel('classi')">Add Model</button>
+                    </b>
+                    <br>
+                    <div ng-repeat="r in dataClassi" ng-init="r.showModel = false">
+                        {{ $index + 1 }}. {{ r.name }}   
+                        
+                        <a ng-click="r.showModel=!r.showModel">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a ng-click="editModel('classi', r._id)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="deleteModel('classi', r._id)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>                       
+                        <div class="col-sm-12 no-padding" ng-show="r.showModel" style="display:table-row;border: 1px solid #ddd; padding: 0px">
+                            <br>
+                            <p>
+                                <b>Name : </b> {{ r.name }}
+                            </p>
+                            <p>
+                                <b>Parameter : </b>
+                                <pre style="width:calc(100vw - 65px);">{{r.parameter || json}}</pre>
+                            </p>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div ng-if="x.name == 'Tạo model bằng phương pháp crp'">
+                    <b>Model Type: 
+                        <button type="submit" class="btn btn-primary" ng-click="addModel('crp')">Add Model</button>
+                    </b>
+                    <br>
+                    <div ng-repeat="r in dataCrp" ng-init="r.showModel = false">
+                        {{ $index + 1 }}. {{ r.name }}   
+                        
+                        <a ng-click="r.showModel=!r.showModel">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a ng-click="editModel('crp', r._id)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="deleteModel('crp', r._id)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>                       
+                        <div class="col-sm-12 no-padding" ng-show="r.showModel" style="display:table-row;border: 1px solid #ddd; padding: 0px">
+                            <br>
+                            <p>
+                                <b>Name : </b> {{ r.name }}
+                            </p>
+                            <p>
+                                <b>Parameter : </b>
+                                <pre style="width:calc(100vw - 65px);">{{r.parameter || json}}</pre>
+                            </p>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
                 <p>
                     <b>Sample Payload : </b>
                     <pre style="width:calc(100vw - 65px);">{{x.samplePayload || json}}</pre>
                 </p>
                 <p>
                     <b>Note : </b>
-                    <span style="word-wrap: break-word">{{x.note}}</span>
+                    <span style="word-wrap: break-word; white-space: pre-line">{{x.note}}</span>
                 </p>
                 <p>
                     <b>Response : </b>

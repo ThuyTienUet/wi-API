@@ -54,7 +54,7 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <a ng-click="deleteApi(x._id)">
-                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </div>
             <div class="col-sm-12 no-padding" ng-show="x.show" style="display:table-row;border: 1px solid #ddd; padding: 0px">
@@ -75,7 +75,7 @@
                     <b>Note : </b>
                     <br/>
                     <!-- <pre>{{ x.note  }}</pre> -->
-                    <span style="word-wrap: break-word">
+                    <span style="word-wrap: break-word; white-space: pre-line">
                         {{x.note}}
                     </span>
                 </p>
