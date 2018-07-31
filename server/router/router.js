@@ -10,10 +10,13 @@ let ctrlWIPM = require('../controller/WIPM');
 let ctrlReg = require('../controller/regression');
 let ctrlClassi = require('../controller/classi');
 let ctrlCrp = require('../controller/crp');
+let ctrlLogin = require('../controller/login');
 
 let JsdocApi = require('../jsdoc/writeFileApi');
 let xlsx = require('../xlsx/exportFile');
 let dowload = require('../xlsx/dowloadFile');
+
+router.post('/login', ctrlLogin.login);
 
 router.get('/apiInsight', ctrlApi.getApi);
 router.get('/apiInsight/:api_id', ctrlApi.apiReadOne);
